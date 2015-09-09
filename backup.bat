@@ -6,6 +6,9 @@
 
 title Backup Utility
 
+:: change userDirectory path to the network drive
+set userDirectory="C:\Users\kevin\Desktop\"
+
 :: define a variable containing a single backspace character
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 
@@ -50,23 +53,22 @@ set noteOption=
 set /p noteOption=%BS%  Option: 
 echo.
 if "%noteOption%"=="1" (
-    echo you choose 1
+    set notePrint=Don't delete
     goto _nonote
 )
 if "%noteOption%"=="2" (
-    echo you choose 2
+    set notePrint=Ask before deleting
     goto _nonote
 )
 if "%noteOption%"=="3" (
-    echo you choose 3
+    set notePrint=Key only
     goto _nonote
 )
 if "%noteOption%"=="4" (
-    echo you choose 4
+    set notePrint=Disk image
     goto _nonote
 )
 if "%noteOption%"=="5" (
-    echo you choose 5
     goto _nonote
 ) else (
     goto _note
@@ -74,6 +76,7 @@ if "%noteOption%"=="5" (
 set /p var=%BS%  Press Enter to Continue: 
 
 :_nonote
-if not exist "C:\Users\kevin\Desktop\%flashline%-%phone%" mkdir C:\Users\kevin\Desktop\%flashline%-%phone%
+:: FOLDER NAMES NEED TO BE REPLACED 
+if not exist "%userDirectory%%flashline%-%phone% (%notePrint%)" mkdir "%userDirectory%%flashline%-%phone% (%notePrint%)"
 pause
 exit
