@@ -76,7 +76,6 @@ if "%noteOption%"=="5" (
 set /p var=%BS%  Press Enter to Continue: 
 
 :_nonote
-:: FOLDER NAMES NEED TO BE REPLACED 
 if not exist "%userDirectory%%flashline%-%phone% (%notePrint%)" mkdir "%userDirectory%%flashline%-%phone% (%notePrint%)"
 pause
 exit
