@@ -69,6 +69,8 @@ if "%noteOption%"=="4" (
     goto _nonote
 )
 if "%noteOption%"=="5" (
+    set notePrint=
+    set /p notePrint=%BS%  Please enter your folder note: 
     goto _nonote
 ) else (
     goto _note
