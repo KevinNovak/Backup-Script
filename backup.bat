@@ -10,12 +10,22 @@ title Backup Utility
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 
 :: =================================================
+:: Intro
+:: =================================================
+echo.
+echo   The backup utility will back up the user's files to the network drive
+echo.
+set /p var=%BS%  Press Enter to Continue:  
+cls
+goto _create
+
+:: =================================================
 :: Create folder 
 :: =================================================
+:_create
 echo.
 set flashline=
 set /p flashline=%BS%  Please enter the user's flashline: 
-if "%input%"=="yes" goto itemsend
 set phone=
 set /p phone=%BS%  Please enter the last 4 digits of the user's phone number: 
 if not exist "C:\Users\kevin\Desktop\%flashline%-%phone%" mkdir C:\Users\kevin\Desktop\%flashline%-%phone%
