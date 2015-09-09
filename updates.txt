@@ -1,0 +1,8 @@
+======================================================
+Backup Script - Updates (tabbed items are complete)
+======================================================
+automatically get key and store
+change userDirectory to network drive
+automatically backup chrome bookmarks
+unstoppable copier support, or similar
+prevent user from leaving fields blank
