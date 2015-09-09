@@ -49,6 +49,28 @@ echo.
 set noteOption=
 set /p noteOption=%BS%  Option: 
 echo.
+if "%noteOption%"=="1" (
+    echo you choose 1
+    goto _nonote
+)
+if "%noteOption%"=="2" (
+    echo you choose 2
+    goto _nonote
+)
+if "%noteOption%"=="3" (
+    echo you choose 3
+    goto _nonote
+)
+if "%noteOption%"=="4" (
+    echo you choose 4
+    goto _nonote
+)
+if "%noteOption%"=="5" (
+    echo you choose 5
+    goto _nonote
+) else (
+    goto _note
+)
 set /p var=%BS%  Press Enter to Continue: 
 
 :_nonote
