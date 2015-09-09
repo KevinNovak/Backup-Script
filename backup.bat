@@ -34,7 +34,7 @@ set /p phone=%BS%  Please enter the last 4 digits of the user's phone number:
 set askForNote=
 set /p askForNote=%BS%  Add an aditional note to the folder name? (yes/no): 
 if "%askForNote%"=="yes" goto _note
-goto _nonote
+goto _createFolder
 
 :: =================================================
 :: Folder Note
@@ -54,30 +54,35 @@ set /p noteOption=%BS%  Option:
 echo.
 if "%noteOption%"=="1" (
     set notePrint=Don't delete
-    goto _nonote
+    goto _createFolder
 )
 if "%noteOption%"=="2" (
     set notePrint=Ask before deleting
-    goto _nonote
+    goto _createFolder
 )
 if "%noteOption%"=="3" (
     set notePrint=Key only
-    goto _nonote
+    goto _createFolder
 )
 if "%noteOption%"=="4" (
     set notePrint=Disk image
-    goto _nonote
+    goto _createFolder
 )
 if "%noteOption%"=="5" (
     set notePrint=
     set /p notePrint=%BS%  Please enter your folder note: 
-    goto _nonote
+    goto _createFolder
 ) else (
     goto _note
 )
 set /p var=%BS%  Press Enter to Continue: 
 
-:_nonote
+:: =================================================
+:: Create Folder
+:: =================================================
+:_createFolder
 if not exist "%userDirectory%%flashline%-%phone% (%notePrint%)" mkdir "%userDirectory%%flashline%-%phone% (%notePrint%)"
+cd "%userDirectory%%flashline%-%phone% (%notePrint%)"
+start.
 pause
 exit
