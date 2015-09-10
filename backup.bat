@@ -82,20 +82,16 @@ set /p var=%BS%  Press Enter to Continue:
 :: =================================================
 :_createFolderNote
 if not exist "%userDirectory%%flashline%-%phone% (%notePrint%)" mkdir "%userDirectory%%flashline%-%phone% (%notePrint%)"
-cd "%userDirectory%%flashline%-%phone% (%notePrint%)"
-start.
 goto _copy
 :_createFolderNoNote
 if not exist "%userDirectory%%flashline%-%phone%" mkdir "%userDirectory%%flashline%-%phone%"
-cd "%userDirectory%%flashline%-%phone%"
-start.
 goto _copy
-:_copy
 
 :: =================================================
 :: Copy Files
 :: =================================================
-
+:_copy
+UnstopCpy.exe +dw "C:\Users\Kevin\Desktop\from_here" "C:\Users\Kevin\Desktop\to_here"
 
 
 
