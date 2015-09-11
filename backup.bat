@@ -6,8 +6,8 @@
 
 title Backup Utility
 
-:: change makeFolderDirectory path to the network drive
-set makeFolderDirectory=C:\Users\kevin\Desktop\
+:: change userDirectory path to the network drive
+set userDirectory="C:\Users\kevin\Desktop\"
 
 :: define a variable containing a single backspace character
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
@@ -81,13 +81,10 @@ set /p var=%BS%  Press Enter to Continue:
 :: Create Folder
 :: =================================================
 :_createFolderNote
-set noteFolderName=%makeFolderDirectory%%flashline%-%phone% (%notePrint%)
-goto _createFolder
+if not exist "%userDirectory%%flashline%-%phone% (%notePrint%)" mkdir "%userDirectory%%flashline%-%phone% (%notePrint%)"
+goto _copy
 :_createFolderNoNote
-set noteFolderName=%makeFolderDirectory%%flashline%-%phone%
-goto _createFolder
-:_createFolder
-if not exist "%noteFolderName%" mkdir "%noteFolderName%"
+if not exist "%userDirectory%%flashline%-%phone%" mkdir "%userDirectory%%flashline%-%phone%"
 goto _copy
 
 :: =================================================
