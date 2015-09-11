@@ -1,3 +1,4 @@
 :: change userDirectory path to the network drive
 pushd \\192.168.1.50\tools :: maybe remove first \ 
-set userDirectory="\\192.168.1.50\tools\"
+set userDirectory=\\192.168.1.50\tools\
+:: set userDirectory=C:\Users\kevin\Desktop\
