@@ -1,6 +1,7 @@
 :: Backup Utility - Backs up the user's files to the network drive
 :: Code by: Kevin Novak
 :: Last Edited: 9/9/2015
+:: Version: 0.0.0.0
 
 @echo off
 
@@ -8,6 +9,7 @@ title Backup Utility
 
 :: change userDirectory path to the network drive
 set userDirectory=C:\Users\kevin\Desktop\
+
 :: change copyFromDirectory path to the path to copy from
 set copyFromDirectory=C:\Users\Kevin\Desktop\from_here
 
@@ -55,19 +57,19 @@ set noteOption=
 set /p noteOption=%BS%  Option: 
 echo.
 if "%noteOption%"=="1" (
-    set notePrint=Don't delete
+    set notePrint=Don't_delete
     goto _createFolderNote
 )
 if "%noteOption%"=="2" (
-    set notePrint=Ask before deleting
+    set notePrint=Ask_before_deleting
     goto _createFolderNote
 )
 if "%noteOption%"=="3" (
-    set notePrint=Key only
+    set notePrint=Key_only
     goto _createFolderNote
 )
 if "%noteOption%"=="4" (
-    set notePrint=Disk image
+    set notePrint=Disk_image
     goto _createFolderNote
 )
 if "%noteOption%"=="5" (
@@ -83,7 +85,7 @@ set /p var=%BS%  Press Enter to Continue:
 :: Create Folder
 :: =================================================
 :_createFolderNote
-set folderName=%userDirectory%%flashline%-%phone% (%notePrint%)
+set folderName=%userDirectory%%flashline%-%phone%-(%notePrint%)
 goto _createFolder
 :_createFolderNoNote
 set folderName=%userDirectory%%flashline%-%phone%
