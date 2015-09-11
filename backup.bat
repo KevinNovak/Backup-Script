@@ -7,7 +7,7 @@
 title Backup Utility
 
 :: change userDirectory path to the network drive
-set userDirectory="C:\Users\kevin\Desktop\"
+set userDirectory=C:\Users\kevin\Desktop\
 
 :: define a variable containing a single backspace character
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
@@ -91,9 +91,8 @@ goto _copy
 :: Copy Files
 :: =================================================
 :_copy
-@echo C:\Users\Kevin\Desktop\from_here^|C:\Users\Kevin\Desktop\to_here> %userDirectory%%flashline%-%phone%\unstoppable.ucb
+@echo C:\Users\Kevin\Desktop\from_here^|%userDirectory%%flashline%-%phone%> %userDirectory%%flashline%-%phone%\unstoppable.ucb
 UnstopCpy_5_2_Win2K_UP.exe %userDirectory%%flashline%-%phone%\unstoppable.ucb
-start UnstopCpy_5_2_Win2K_UP.exe +d [%userDirectory%%flashline%-%phone%\unstoppable.ucb]
 
 
 
