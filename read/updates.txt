@@ -4,5 +4,8 @@ Backup Script - Updates (tabbed items are complete)
 automatically get key and store
 change userDirectory to network drive
 automatically backup chrome bookmarks
-unstoppable copier support, or similar
+	unstoppable copier support, or similar
 prevent user from leaving fields blank
+add support for spaces in paths (and change user-entered note)
+multiple options for backup
+time remaining
