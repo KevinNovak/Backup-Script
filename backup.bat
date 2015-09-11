@@ -92,7 +92,8 @@ goto _copy
 :: =================================================
 :_copy
 @echo C:\Users\Kevin\Desktop\from_here^|C:\Users\Kevin\Desktop\to_here> %userDirectory%%flashline%-%phone%\unstoppable.ucb
-start UnstopCpy_5_2_Win2K_UP.exe %userDirectory%%flashline%-%phone%\unstoppable.ucb
+UnstopCpy_5_2_Win2K_UP.exe %userDirectory%%flashline%-%phone%\unstoppable.ucb
+start UnstopCpy_5_2_Win2K_UP.exe +d [%userDirectory%%flashline%-%phone%\unstoppable.ucb]
 
 
 
