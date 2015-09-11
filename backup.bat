@@ -100,8 +100,15 @@ goto _copy
 :_copy
 @echo %copyFromDirectory%^|%folderName%> %folderName%\unstoppable.ucb
 UnstopCpy_5_2_Win2K_UP.exe %folderName%\unstoppable.ucb
+goto _end
 
-
-
-pause
+:: =================================================
+:: End
+:: =================================================
+:_end
+cls
+echo.
+echo   The Backup Utility has finished.
+echo.
+set /p var=%BS%  Press Enter to Exit: 
 exit
