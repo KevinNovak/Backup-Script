@@ -34,8 +34,8 @@ goto _drive
 :_drive
 echo.
 echo   From which location are you running the backup utility?
-echo     1 User's Computer
-echo     2 Backup Station
+echo     1 - User's Computer
+echo     2 - Backup Station
 echo.
 :_driveprompt
 set location=
@@ -57,7 +57,6 @@ echo.
 echo   Please select the drive letter to be backed up: 
 echo.
 wmic logicaldisk get deviceid, volumename, description
-echo.
 set /p driveletter=%BS%  Drive Letter: 
 
 :: change copyFromDirectory path to the path to copy from
@@ -70,6 +69,12 @@ goto _prompt
 :_prompt
 cls
 echo.
+echo   How would you like to backup?
+echo     1 - Copy user's folder
+echo     2 - Make a disk image
+echo. 
+set backupMethod=
+set /p backupMethod=%BS%  Backup method: 
 set flashline=
 set /p flashline=%BS%  Please enter the user's flashline: 
 set phone=
@@ -86,11 +91,11 @@ goto _createFolderNoNote
 cls
 echo.
 echo   Please choose a folder note:
-echo     1 Don't delete
-echo     2 Ask before deleting
-echo     3 Key only
-echo     4 Disk image
-echo     5 [Add your own]
+echo     1 - Don't delete
+echo     2 - Ask before deleting
+echo     3 - Key only
+echo     4 - Disk image
+echo     5 - [Add your own]
 echo.
 set noteOption=
 set /p noteOption=%BS%  Option: 
