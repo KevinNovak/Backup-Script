@@ -138,5 +138,6 @@ goto _end
 echo.
 echo   The Backup Utility has finished.
 echo.
-set /p var=%BS%  Press Enter to Exit: 
+set /p var=%BS%  Press Enter to Exit:
+start %folderName%\
 exit
