@@ -152,7 +152,7 @@ cls
 echo.
 echo   Original User Data:
 echo.
-du -l 1 -q %copyFromDirectory%
+du -q %copyFromDirectory%
 set /p var=%BS%  Press Enter to Continue: 
 goto _copy
 
@@ -176,7 +176,7 @@ echo   The Backup Utility has finished.
 echo.
 echo   Data on Backup:
 echo.
-du -l 1 -q %folderName%
+du -q %folderName%
 set /p var=%BS%  Press Enter to Exit: 
 start %folderName%\
 exit
