@@ -99,7 +99,8 @@ goto _copy
 :: =================================================
 :_copy
 @echo %copyFromDirectory%^|%folderName%> %folderName%\unstoppable.ucb
-UnstopCpy_5_2_Win2K_UP.exe %folderName%\unstoppable.ucb
+:: +d means default and +z means calculate time remaining 
+UnstopCpy_5_2_Win2K_UP.exe +dz %folderName%\unstoppable.ucb
 goto _end
 
 :: =================================================
