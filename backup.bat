@@ -24,7 +24,7 @@ for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 echo.
 echo   The backup utility will back up the user's files to the network drive
 echo.
-set /p var=%BS%  Press Enter to Continue:  
+set /p var=%BS%  Press Enter to Continue: 
 cls
 goto _drive
 
@@ -138,6 +138,6 @@ goto _end
 echo.
 echo   The Backup Utility has finished.
 echo.
-set /p var=%BS%  Press Enter to Exit:
+set /p var=%BS%  Press Enter to Exit: 
 start %folderName%\
 exit
