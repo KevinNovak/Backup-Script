@@ -41,12 +41,22 @@ echo.
 set location=
 set /p location=%BS%  Location: 
 if "%location%"=="1" (
-    goto _prompt
+    goto _keys
 )
 if "%location%"=="2" (
     goto _driveletter
 )
 goto _driveprompt
+
+:: =================================================
+:: Prompt Keys
+:: =================================================
+:_keys
+cls
+echo.
+set savekey=
+set /p savekey=%BS%  Would you like to save the bios key? (yes/no): 
+goto _prompt
 
 :: =================================================
 :: Get Drive Letter
@@ -118,6 +128,13 @@ set folderName=%userDirectory%%flashline%-%phone%
 goto _createFolder
 :_createFolder
 if not exist "%folderName%" mkdir "%folderName%"
+
+:: =================================================
+:: Save Keys
+:: =================================================
+:_keys
+if "%savekey%" == "yes" wmic path softwarelicensingservice get OA3xOriginalProductKey>%folderName%\keys.txt
+if "%savekey%" == "y" wmic path softwarelicensingservice get OA3xOriginalProductKey>%folderName%\keys.txt
 goto _copy
 
 :: =================================================
