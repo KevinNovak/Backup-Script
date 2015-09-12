@@ -69,12 +69,6 @@ goto _prompt
 :_prompt
 cls
 echo.
-echo   How would you like to backup?
-echo     1 - Copy user's folder
-echo     2 - Make a disk image
-echo. 
-set backupMethod=
-set /p backupMethod=%BS%  Backup method: 
 set flashline=
 set /p flashline=%BS%  Please enter the user's flashline: 
 set phone=
@@ -93,9 +87,7 @@ echo.
 echo   Please choose a folder note:
 echo     1 - Don't delete
 echo     2 - Ask before deleting
-echo     3 - Key only
-echo     4 - Disk image
-echo     5 - [Add your own]
+echo     3 - [No Note]
 echo.
 set noteOption=
 set /p noteOption=%BS%  Option: 
@@ -109,17 +101,7 @@ if "%noteOption%"=="2" (
     goto _createFolderNote
 )
 if "%noteOption%"=="3" (
-    set notePrint=Key_only
-    goto _createFolderNote
-)
-if "%noteOption%"=="4" (
-    set notePrint=Disk_image
-    goto _createFolderNote
-)
-if "%noteOption%"=="5" (
-    set notePrint=
-    set /p notePrint=%BS%  Please enter your folder note: 
-    goto _createFolderNote
+    goto _createFolderNoNote
 ) else (
     goto _note
 )
@@ -145,13 +127,14 @@ goto _copy
 @echo %copyFromDirectory%^|%folderName%> %folderName%\unstoppable.ucb
 :: +d means default and +z means calculate time remaining 
 UnstopCpy_5_2_Win2K_UP.exe +dz %folderName%\unstoppable.ucb
+del %folderName%\unstoppable.ucb
+cls
 goto _end
 
 :: =================================================
 :: End
 :: =================================================
 :_end
-cls
 echo.
 echo   The Backup Utility has finished.
 echo.
