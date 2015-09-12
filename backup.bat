@@ -7,8 +7,10 @@
 
 title Backup Utility
 
+set driveLetter=C
+
 :: change userDirectory path to the network drive
-set userDirectory=C:\Users\kevin\Desktop\
+set userDirectory=%driveLetter%:\Users\kevin\Desktop\
 
 :: change copyFromDirectory path to the path to copy from
 set copyFromDirectory=C:\Users\Kevin\Desktop\from_here
@@ -42,9 +44,25 @@ if "%location%"=="1" (
     goto _prompt
 )
 if "%location%"=="2" (
-    goto _driveprompt
+    goto _driveletter
 )
 goto _driveprompt
+
+:: =================================================
+:: Get Drive Letter
+:: =================================================
+:_driveletter
+cls
+echo.
+echo   Please select the drive letter to be backed up: 
+echo.
+wmic logicaldisk get deviceid, volumename, description
+echo.
+set /p driveletter=%BS%  Drive Letter: 
+
+:: change copyFromDirectory path to the path to copy from
+set copyFromDirectory=%driveletter%:\Users\Kevin\Desktop\from_here
+goto _prompt
 
 :: =================================================
 :: Prompt for Options
