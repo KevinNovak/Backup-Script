@@ -128,13 +128,14 @@ set /p var=%BS%  Press Enter to Continue:
 :: Create Folder
 :: =================================================
 :_createFolderNote
-set folderName=%userDirectory%%flashline%-%phone%-(%notePrint%)
+set folderName=%userDirectory%%flashline%-%phone%-%notePrint%
 goto _createFolder
 :_createFolderNoNote
 set folderName=%userDirectory%%flashline%-%phone%
 goto _createFolder
 :_createFolder
 if not exist "%folderName%" mkdir "%folderName%"
+goto _keys
 
 :: =================================================
 :: Save Keys
