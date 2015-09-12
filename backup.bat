@@ -1,6 +1,6 @@
 :: Backup Utility - Backs up the user's files to the network drive
 :: Code by: Kevin Novak
-:: Last Edited: 9/9/2015
+:: Last Edited: 9/11/2015
 :: Version: 0.0.0.0
 
 @echo off
@@ -24,12 +24,33 @@ echo   The backup utility will back up the user's files to the network drive
 echo.
 set /p var=%BS%  Press Enter to Continue:  
 cls
-goto _prompt
+goto _drive
+
+:: =================================================
+:: Setting Drive Letter
+:: =================================================
+:_drive
+echo.
+echo   From which location are you running the backup utility?
+echo     1 User's Computer
+echo     2 Backup Station
+echo.
+:_driveprompt
+set location=
+set /p location=%BS%  Location: 
+if "%location%"=="1" (
+    goto _prompt
+)
+if "%location%"=="2" (
+    goto _driveprompt
+)
+goto _driveprompt
 
 :: =================================================
 :: Prompt for Options
 :: =================================================
 :_prompt
+cls
 echo.
 set flashline=
 set /p flashline=%BS%  Please enter the user's flashline: 
