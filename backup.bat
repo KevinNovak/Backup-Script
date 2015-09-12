@@ -138,6 +138,18 @@ if not exist "%folderName%" mkdir "%folderName%"
 :_keys
 if "%savekey%" == "yes" produkey.exe /stext %folderName%\keys.txt
 if "%savekey%" == "y" produkey.exe /stext %folderName%\keys.txt
+goto _sizebefore
+
+:: =================================================
+:: Size Before
+:: =================================================
+:_sizebefore
+cls
+echo.
+echo   Original User Data:
+echo.
+du -l 1 -q %copyFromDirectory%
+set /p var=%BS%  Press Enter to Continue: 
 goto _copy
 
 :: =================================================
@@ -158,6 +170,9 @@ goto _end
 echo.
 echo   The Backup Utility has finished.
 echo.
+echo   Data on Backup:
+echo.
+du -l 1 -q %folderName%
 set /p var=%BS%  Press Enter to Exit: 
 start %folderName%\
 exit

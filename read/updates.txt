@@ -10,3 +10,4 @@ add support for spaces in paths (and change user-entered note)
 multiple options for backup
 	time remaining
 ability to image drive
+fix spacing for drive letters, name, etc
