@@ -151,8 +151,9 @@ goto _sizebefore
 cls
 echo.
 echo   Original User Data:
+du -q %copyFromDirectory%>%folderName%\originalUserData.txt
+FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
 echo.
-du -q %copyFromDirectory%
 set /p var=%BS%  Press Enter to Continue: 
 goto _copy
 
@@ -174,9 +175,15 @@ goto _end
 echo.
 echo   The Backup Utility has finished.
 echo.
-echo   Data on Backup:
+echo   Original User Data:
+FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
 echo.
-du -q %folderName%
+echo   Data on Backup:
+du -q %folderName%>%folderName%\dataOnBackup.txt
+FOR /F "tokens=* delims= " %%A IN (%folderName%\dataOnBackup.txt) DO ECHO.    %%A
+del %folderName%\originalUserData.txt
+del %folderName%\dataOnBackup.txt
+echo.
 set /p var=%BS%  Press Enter to Exit: 
 start %folderName%\
 exit
