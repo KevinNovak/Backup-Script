@@ -9,17 +9,20 @@ title Backup Utility
 
 set driveLetter=C
 
+:: =================================================
+:: Network Drive & Copy Paths
+:: =================================================
 :: change userDirectory path to the network drive
-set userDirectory=%driveLetter%:\Users\kevin\Desktop\
+set userDirectory=C:\Users\kevin\Desktop\
 
 :: change copyFromDirectory path to the path to copy from
-set copyFromDirectory=C:\Users\Kevin\Desktop\from_here
+set copyFromDirectory=%driveLetter%:\Users\Kevin\Desktop\from_here
 
 :: define a variable containing a single backspace character
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 
 :: =================================================
-:: Intro
+:: Intro Dialog
 :: =================================================
 echo.
 echo   The backup utility will back up the user's files to the network drive
@@ -49,7 +52,7 @@ if "%location%"=="2" (
 goto _driveprompt
 
 :: =================================================
-:: Prompt Keys
+:: Prompt for Saving Keys
 :: =================================================
 :_keys
 cls
@@ -59,7 +62,7 @@ set /p savekey=%BS%  Would you like to save keys? (yes/no):
 goto _prompt
 
 :: =================================================
-:: Get Drive Letter
+:: Getting Drive Letter
 :: =================================================
 :_driveletter
 cls
@@ -74,7 +77,7 @@ set copyFromDirectory=%driveletter%:\Users\Kevin\Desktop\from_here
 goto _prompt
 
 :: =================================================
-:: Prompt for Options
+:: Prompt for Folder Name
 :: =================================================
 :_prompt
 cls
@@ -89,7 +92,7 @@ if "%askForNote%"=="yes" goto _note
 goto _createFolderNoNote
 
 :: =================================================
-:: Folder Note
+:: Prompt for Folder Note
 :: =================================================
 :_note
 cls
@@ -149,7 +152,7 @@ cls
 goto _end
 
 :: =================================================
-:: End
+:: Ending Dialog
 :: =================================================
 :_end
 echo.
