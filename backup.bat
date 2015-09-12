@@ -70,7 +70,11 @@ echo.
 echo   Please select the drive letter to be backed up: 
 echo.
 wmic logicaldisk get deviceid, volumename, description
-set /p driveletter=%BS%  Drive Letter: 
+set /p driveletter=%BS%  Drive Letter ('?' for help): 
+if "%driveletter%"=="?" (
+    diskmgmt.msc
+    goto _driveletter
+)
 
 :: change copyFromDirectory path to the path to copy from
 set copyFromDirectory=%driveletter%:\Users\Kevin\Desktop\from_here

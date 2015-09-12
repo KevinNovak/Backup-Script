@@ -1,13 +1,16 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
-	automatically get key and store
 change userDirectory to network drive
 automatically backup chrome bookmarks
-	unstoppable copier support, or similar
 prevent user from leaving fields blank
 add support for spaces in paths (and change user-entered note)
 multiple options for backup
-	time remaining
 ability to image drive
 fix spacing for drive letters, name, etc
+	? opens disk management
+error messages before actions
+differnent users folder for different os's
+	time remaining
+	unstoppable copier support
+	produkey gets key and stores
