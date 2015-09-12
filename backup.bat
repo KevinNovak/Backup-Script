@@ -1,6 +1,6 @@
 :: Backup Utility - Backs up the user's files to the network drive
 :: Code by: Kevin Novak
-:: Last Edited: 9/11/2015
+:: Last Edited: 9/12/2015
 :: Version: 0.0.0.0
 
 @echo off
@@ -55,7 +55,7 @@ goto _driveprompt
 cls
 echo.
 set savekey=
-set /p savekey=%BS%  Would you like to save the bios key? (yes/no): 
+set /p savekey=%BS%  Would you like to save keys? (yes/no): 
 goto _prompt
 
 :: =================================================
@@ -133,8 +133,8 @@ if not exist "%folderName%" mkdir "%folderName%"
 :: Save Keys
 :: =================================================
 :_keys
-if "%savekey%" == "yes" wmic path softwarelicensingservice get OA3xOriginalProductKey>%folderName%\keys.txt
-if "%savekey%" == "y" wmic path softwarelicensingservice get OA3xOriginalProductKey>%folderName%\keys.txt
+if "%savekey%" == "yes" produkey.exe /stext %folderName%\keys.txt
+if "%savekey%" == "y" produkey.exe /stext %folderName%\keys.txt
 goto _copy
 
 :: =================================================
