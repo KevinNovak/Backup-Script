@@ -1,6 +1,9 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
+"this could take awhile" dialog
+add titles to sections
+play sound when finished
 change userDirectory to network drive
 automatically backup chrome bookmarks
 prevent user from leaving fields blank
@@ -8,9 +11,9 @@ add support for spaces in paths (and change user-entered note)
 multiple options for backup
 ability to image drive
 fix spacing for drive letters, name, etc
-	? opens disk management
 error messages before actions
 differnent users folder for different os's
 	time remaining
 	unstoppable copier support
 	produkey gets key and stores
+	? opens disk management
