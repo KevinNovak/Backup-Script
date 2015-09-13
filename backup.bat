@@ -151,17 +151,22 @@ goto _sizebefore
 :_sizebefore
 cls
 echo.
-echo   Original User Data:
+echo   Getting original data information (this could take awhile)...
 du -q %copyFromDirectory%>%folderName%\originalUserData.txt
+ping 1.1.1.1 -n 1 -w 1500 > nul
+echo.
+echo   Original User Data:
 FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
 echo.
-set /p var=%BS%  Press Enter to Continue: 
+set /p var=%BS%  Press Enter to begin transfer: 
 goto _copy
 
 :: =================================================
 :: Copy Files
 :: =================================================
 :_copy
+echo.
+echo   Transferring files...
 @echo %copyFromDirectory%^|%folderName%> %folderName%\unstoppable.ucb
 :: +d means default and +z means calculate time remaining 
 UnstopCpy_5_2_Win2K_UP.exe +dz %folderName%\unstoppable.ucb
@@ -179,13 +184,16 @@ echo.
 echo   Original User Data:
 FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
 echo.
-echo   Data on Backup:
+echo   Getting backup data information (this could take awhile)...
 du -q %folderName%>%folderName%\dataOnBackup.txt
+ping 1.1.1.1 -n 1 -w 1500 > nul
+echo.
+echo   Data on Backup:
 FOR /F "tokens=* delims= " %%A IN (%folderName%\dataOnBackup.txt) DO ECHO.    %%A
 del %folderName%\originalUserData.txt
 del %folderName%\dataOnBackup.txt
 echo.
-start sWavPlayer.exe marimba.wav
-set /p var=%BS%  Press Enter to Exit: 
+start sWavPlayer.exe Alarm05.wav
+set /p var=%BS%  Press Enter to open folder and exit: 
 start %folderName%\
 exit

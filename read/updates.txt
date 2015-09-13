@@ -1,8 +1,6 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
-change alert sound
-"this could take awhile" dialog
 add titles to sections
 ask user to turn up volume, and/or ask if they want to be alerted
 change userDirectory to network drive
@@ -14,6 +12,8 @@ ability to image drive
 fix spacing for drive letters, name, etc
 error messages before actions
 differnent users folder for different os's
+	change alert sound
+	"this could take awhile" dialog
 	time remaining
 	unstoppable copier support
 	produkey gets key and stores
