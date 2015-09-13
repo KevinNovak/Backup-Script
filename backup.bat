@@ -202,11 +202,11 @@ cls
 echo.
 echo   ----------------- Transfer Data -----------------
 echo   Getting original data information (this could take awhile)...
-du -q %copyFromDirectory%>%folderName%\originalUserData.txt
+du -q %copyFromDirectory%>%TEMP%\originalUserData.txt
 ping 1.1.1.1 -n 1 -w 1500 > nul
 echo.
 echo   Original User Data:
-FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
+FOR /F "tokens=* delims= " %%A IN (%TEMP%\originalUserData.txt) DO ECHO.    %%A
 echo.
 echo   Ensure the sound is enabled if you would like to be alerted.
 echo.
@@ -235,16 +235,16 @@ echo   ----------------- Backup Complete -----------------
 echo   The Backup Utility has finished.
 echo.
 echo   Original User Data:
-FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
+FOR /F "tokens=* delims= " %%A IN (%TEMP%\originalUserData.txt) DO ECHO.    %%A
 echo.
 echo   Getting backup data information (this could take awhile)...
-du -q %folderName%>%folderName%\dataOnBackup.txt
+du -q %folderName%>%TEMP%\dataOnBackup.txt
 ping 1.1.1.1 -n 1 -w 1500 > nul
 echo.
 echo   Data on Backup:
-FOR /F "tokens=* delims= " %%A IN (%folderName%\dataOnBackup.txt) DO ECHO.    %%A
-del %folderName%\originalUserData.txt
-del %folderName%\dataOnBackup.txt
+FOR /F "tokens=* delims= " %%A IN (%TEMP%\dataOnBackup.txt) DO ECHO.    %%A
+del %TEMP%\originalUserData.txt
+del %TEMP%\dataOnBackup.txt
 echo.
 start sWavPlayer.exe Alarm05.wav
 set /p var=%BS%  Press Enter to open folder and exit: 
