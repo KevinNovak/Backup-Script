@@ -219,10 +219,10 @@ goto _copy
 :_copy
 echo.
 echo   Transferring files...
-@echo %copyFromDirectory%^|%folderName%> %folderName%\unstoppable.ucb
+@echo %copyFromDirectory%^|%folderName%> %TEMP%\unstoppable.ucb
 :: +d means default and +z means calculate time remaining 
-UnstopCpy_5_2_Win2K_UP.exe +dz %folderName%\unstoppable.ucb
-del %folderName%\unstoppable.ucb
+UnstopCpy_5_2_Win2K_UP.exe +dz %TEMP%\unstoppable.ucb
+del %TEMP%\unstoppable.ucb
 cls
 goto _end
 
