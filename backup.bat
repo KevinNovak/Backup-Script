@@ -25,7 +25,7 @@ for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 :: Intro Dialog
 :: =================================================
 echo.
-echo   The backup utility will back up the user's files to the network drive
+echo   The backup utility will back up the user's files to the network drive.
 echo.
 set /p var=%BS%  Press Enter to Continue: 
 cls
@@ -36,6 +36,7 @@ goto _drive
 :: =================================================
 :_drive
 echo.
+echo   ----------------- Backup Location -----------------
 echo   From which location are you running the backup utility?
 echo     1 - User's Computer
 echo     2 - Backup Station
@@ -57,6 +58,7 @@ goto _driveprompt
 :_keys
 cls
 echo.
+echo   ----------------- Saving Keys -----------------
 set savekey=
 set /p savekey=%BS%  Would you like to save keys? (yes/no): 
 goto _prompt
@@ -67,6 +69,7 @@ goto _prompt
 :_driveletter
 cls
 echo.
+echo   ----------------- Drive Letter -----------------
 echo   Please select the drive letter containing the user's folder: 
 echo.
 wmic logicaldisk get deviceid, volumename, description
@@ -86,6 +89,7 @@ goto _prompt
 :_prompt
 cls
 echo.
+echo   ----------------- Folder Options -----------------
 set flashline=
 set /p flashline=%BS%  Please enter the user's flashline: 
 set phone=
@@ -101,6 +105,7 @@ goto _createFolderNoNote
 :_note
 cls
 echo.
+echo   ----------------- Folder Note -----------------
 echo   Please choose a folder note:
 echo     1 - Don't delete
 echo     2 - Ask before deleting
@@ -151,12 +156,15 @@ goto _sizebefore
 :_sizebefore
 cls
 echo.
+echo   ----------------- Transfer Data -----------------
 echo   Getting original data information (this could take awhile)...
 du -q %copyFromDirectory%>%folderName%\originalUserData.txt
 ping 1.1.1.1 -n 1 -w 1500 > nul
 echo.
 echo   Original User Data:
 FOR /F "tokens=* delims= " %%A IN (%folderName%\originalUserData.txt) DO ECHO.    %%A
+echo.
+echo   Ensure the sound is enabled if you would like to be alerted.
 echo.
 set /p var=%BS%  Press Enter to begin transfer: 
 goto _copy
@@ -179,6 +187,7 @@ goto _end
 :: =================================================
 :_end
 echo.
+echo   ----------------- Backup Complete -----------------
 echo   The Backup Utility has finished.
 echo.
 echo   Original User Data:

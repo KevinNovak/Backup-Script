@@ -1,17 +1,16 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
-add titles to sections
-ask user to turn up volume, and/or ask if they want to be alerted
 change userDirectory to network drive
 automatically backup chrome bookmarks
 prevent user from leaving fields blank
 add support for spaces in paths (and change user-entered note)
-multiple options for backup
 ability to image drive
 fix spacing for drive letters, name, etc
 error messages before actions
 differnent users folder for different os's
+	ask user to turn up volume, and/or ask if they want to be alerted
+	add titles to sections
 	change alert sound
 	"this could take awhile" dialog
 	time remaining
