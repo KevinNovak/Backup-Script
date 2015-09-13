@@ -10,8 +10,52 @@ title Backup Utility
 set driveLetter=C
 
 :: =================================================
+:: Detect OS 
+:: =================================================
+setLocal EnableDelayedExpansion
+for /f "tokens=* USEBACKQ" %%f in (`ver`) do set versionOutput=%%f
+
+if not "x!versionOutput:Version 10.0=!"=="x%versionOutput%" (
+    set operatingSystem=ten
+    goto _begin
+)
+
+if not "x!versionOutput:Version 6.3=!"=="x%versionOutput%" (
+    set operatingSystem=eight
+    goto _begin
+)
+
+if not "x!versionOutput:Version 6.2=!"=="x%versionOutput%" (
+    set operatingSystem=eight
+    goto _begin
+)
+
+if not "x!versionOutput:Version 6.1=!"=="x%versionOutput%" (
+    set operatingSystem=seven
+    goto _begin
+)
+
+if not "x!versionOutput:Version 6.0=!"=="x%versionOutput%" (
+    set operatingSystem=vista
+    goto _begin
+)
+
+if not "x!versionOutput:Version 5.2=!"=="x%versionOutput%" (
+    set operatingSystem=xp
+    goto _xperror
+)
+
+if not "x!versionOutput:Version 5.1=!"=="x%versionOutput%" (
+    set operatingSystem=xp
+    goto _xperror
+)
+endlocal
+goto _error
+
+:: =================================================
 :: Network Drive & Copy Paths
 :: =================================================
+:_begin
 :: change userDirectory path to the network drive
 set userDirectory=C:\Users\kevin\Desktop\
 
@@ -205,4 +249,17 @@ echo.
 start sWavPlayer.exe Alarm05.wav
 set /p var=%BS%  Press Enter to open folder and exit: 
 start %folderName%\
+exit
+
+:: =================================================
+:: Errors
+:: =================================================
+:_error
+echo   No Valid OS Detected!
+ping 1.1.1.1 -n 1 -w 5000 > nul
+exit
+
+:_xperror
+echo   The Backup Utility is not supported on Windows XP.
+ping 1.1.1.1 -n 1 -w 5000 > nul
 exit
