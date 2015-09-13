@@ -67,7 +67,7 @@ goto _prompt
 :_driveletter
 cls
 echo.
-echo   Please select the drive letter to be backed up: 
+echo   Please select the drive letter containing the user's folder: 
 echo.
 wmic logicaldisk get deviceid, volumename, description
 set /p driveletter=%BS%  Drive Letter ('?' for help): 
@@ -185,6 +185,7 @@ FOR /F "tokens=* delims= " %%A IN (%folderName%\dataOnBackup.txt) DO ECHO.    %%
 del %folderName%\originalUserData.txt
 del %folderName%\dataOnBackup.txt
 echo.
+start sWavPlayer.exe marimba.wav
 set /p var=%BS%  Press Enter to Exit: 
 start %folderName%\
 exit

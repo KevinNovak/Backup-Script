@@ -1,9 +1,10 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
+change alert sound
 "this could take awhile" dialog
 add titles to sections
-play sound when finished
+ask user to turn up volume, and/or ask if they want to be alerted
 change userDirectory to network drive
 automatically backup chrome bookmarks
 prevent user from leaving fields blank
@@ -17,3 +18,4 @@ differnent users folder for different os's
 	unstoppable copier support
 	produkey gets key and stores
 	? opens disk management
+	play sound when finished
