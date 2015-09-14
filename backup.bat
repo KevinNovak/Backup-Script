@@ -1,12 +1,10 @@
 :: Backup Utility - Backs up the user's files to the network drive
 :: Code by: Kevin Novak
 :: Last Edited: 9/13/2015
-:: Version: 0.0.0.0
+:: Version: 1.0.0.0
 
 @echo off
-
 title Backup Utility
-
 set driveLetter=C
 
 :: =================================================
@@ -115,7 +113,6 @@ cls
 echo.
 echo   ----------------- Drive Letter -----------------
 echo   Please select the drive letter containing the user's folder: 
-echo.
 wmic /OUTPUT:%TEMP%\driveLetter.txt logicaldisk get deviceid, volumename, description
 TYPE %TEMP%\driveLetter.txt > %TEMP%\driveLetterANSI.txt
 FOR /F "tokens=* delims= " %%A IN (%TEMP%\driveLetterANSI.txt) DO ECHO.    %%A
