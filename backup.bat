@@ -122,8 +122,6 @@ FOR /F "tokens=* delims= " %%A IN (%TEMP%\driveLetterANSI.txt) DO ECHO.    %%A
 del %TEMP%\driveLetter.txt
 del %TEMP%\driveLetterANSI.txt
 echo.
-goto _enterdriveletter
-:_enterdriveletter
 set /p driveletter=%BS%  Drive Letter ('?' for help): 
 if "%driveletter%"=="?" (
     diskmgmt.msc
@@ -131,7 +129,8 @@ if "%driveletter%"=="?" (
 )
 if not exist "%driveletter%:\Users" (
     echo   User's folder not found.
-    goto _enterdriveletter
+    ping 1.1.1.1 -n 1 -w 1000 > nul    
+    goto _driveletter
 )
 
 :: change copyFromDirectory path to the path to copy from
