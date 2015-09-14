@@ -1,13 +1,13 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
-fix spacing for drive letters, name, etc
 add support for spaces in paths (and change user-entered note)
 xp support
 automatically backup chrome bookmarks
 prevent user from leaving fields blank
 ability to image drive
 error messages before actions
+	fix spacing for drive letters, name, etc
 	different users folder for different os's
 	ask user to turn up volume, and/or ask if they want to be alerted
 	add titles to sections
