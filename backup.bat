@@ -151,6 +151,7 @@ set /p phone=%BS%  Please enter the last 4 digits of the user's phone number:
 set askForNote=
 set /p askForNote=%BS%  Add an aditional note to the folder name? (yes/no): 
 if "%askForNote%"=="yes" goto _note
+if "%askForNote%"=="y" goto _note
 goto _createFolderNoNote
 
 :: =================================================
