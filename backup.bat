@@ -141,10 +141,18 @@ goto _prompt
 cls
 echo.
 echo   ----------------- Folder Options -----------------
+:_flashline
 set flashline=
 set /p flashline=%BS%  Please enter the user's flashline: 
+if "%flashline%"=="" (
+    goto _flashline
+)
+:_phone
 set phone=
 set /p phone=%BS%  Please enter the last 4 digits of the user's phone number: 
+if "%phone%"=="" (
+    goto _phone
+)
 set askForNote=
 set /p askForNote=%BS%  Add an aditional note to the folder name? (yes/no): 
 if "%askForNote%"=="yes" goto _note
