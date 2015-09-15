@@ -1,7 +1,7 @@
 :: Backup Utility - Backs up the user's files to the network drive
 :: Code by: Kevin Novak
 :: Last Edited: 9/13/2015
-:: Version: 1.0.0.0
+:: Version: 1.0.1.0
 
 @echo off
 title Backup Utility
@@ -74,7 +74,6 @@ for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 :: =================================================
 echo.
 echo   The backup utility will back up the user's files to the network drive.
-echo.
 echo   Ensure the sound is enabled if you would like to be alerted.
 echo.
 set /p var=%BS%  Press Enter to Continue: 
