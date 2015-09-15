@@ -17,32 +17,26 @@ if not "x!versionOutput:Version 10.0=!"=="x%versionOutput%" (
     set operatingSystem=ten
     goto _begin
 )
-
 if not "x!versionOutput:Version 6.3=!"=="x%versionOutput%" (
     set operatingSystem=eight
     goto _begin
 )
-
 if not "x!versionOutput:Version 6.2=!"=="x%versionOutput%" (
     set operatingSystem=eight
     goto _begin
 )
-
 if not "x!versionOutput:Version 6.1=!"=="x%versionOutput%" (
     set operatingSystem=seven
     goto _begin
 )
-
 if not "x!versionOutput:Version 6.0=!"=="x%versionOutput%" (
     set operatingSystem=vista
     goto _begin
 )
-
 if not "x!versionOutput:Version 5.2=!"=="x%versionOutput%" (
     set operatingSystem=xp
     goto _xperror
 )
-
 if not "x!versionOutput:Version 5.1=!"=="x%versionOutput%" (
     set operatingSystem=xp
     goto _xperror
@@ -54,17 +48,16 @@ goto _oserror
 :: Network Drive & Copy Paths
 :: =================================================
 :_begin
-:: change userDirectory path to the network drive
-set userDirectory=C:\Users\kevin\Desktop\
-:: set userDirectory=\\192.168.1.50\backup\
-
+:: change userDirectory path to the network drive (with "\" at end)
+:: set userDirectory=C:\Users\kevin\Desktop\
+set userDirectory=\\192.168.1.50\backup\
 if not exist "%userDirectory%" (
     goto _networkerror
 )
 
-:: change copyFromDirectory path to the path to copy from
-set copyFromDirectory=%driveLetter%:\Users\Kevin\Desktop\from_here
-:: set copyFromDirectory=%driveLetter%:\Users
+:: change copyFromDirectory path to the path to copy from (no "\" at end)
+:: set copyFromDirectory=%driveLetter%:\kevin\Desktop\from_here
+set copyFromDirectory=%driveLetter%:\Users
 
 :: define a variable containing a single backspace character
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
@@ -81,7 +74,7 @@ cls
 goto _drive
 
 :: =================================================
-:: Setting Drive Letter
+:: Getting Location
 :: =================================================
 :_drive
 echo.
@@ -123,6 +116,7 @@ goto _prompt
 :: Getting Drive Letter
 :: =================================================
 :_driveletter
+set driveLetter=
 cls
 echo.
 echo   ----------------- Drive Letter -----------------
@@ -140,7 +134,7 @@ if not exist "%driveletter%:\Users" (
 )
 
 :: change copyFromDirectory path to the path to copy from
-set copyFromDirectory=%driveletter%:\Users\Kevin\Desktop\from_here
+set copyFromDirectory=%driveletter%:\Users
 goto _prompt
 
 :: =================================================

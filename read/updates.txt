@@ -6,7 +6,7 @@ xp support
 automatically backup chrome bookmarks
 ability to image drive
 du shows in kilobytes
-no accept du terms
+no accept du or unstoppable terms
 	check for network drive first
 	short sound after getting data information
 	user's-computer PE
