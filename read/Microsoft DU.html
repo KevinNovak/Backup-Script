@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        
+    <meta name="search.content.shortId" content="bb896651" />
+    <meta name="ms.shortidmsdn" content="bb896651" />
+    <meta name="search.content.locale" content="en-us" />
+    <meta name="MN" content="FB361392-7:09:28 PM" />
+    <meta http-equiv="content-language" content="en" />
+    
+      <link rel="canonical" href="https://technet.microsoft.com/en-us/sysinternals/bb896651.aspx" />
+      
+      <meta name="NormalizedUrl" content="https://technet.microsoft.com/en-us/sysinternals/bb896651(d=default,l=en-us,v=MSDN.10).aspx" />
+      <meta name="ms.normalizedurl" content="https://technet.microsoft.com/en-us/sysinternals/bb896651(d=default,l=en-us,v=MSDN.10).aspx" />
+    
+        <meta name="Title" content="Disk Usage" />
+    
+        <meta name="description" content="View disk usage by directory." />
+    
+        <meta name="PTSearchTitle" content="Disk Usage" />
+    
+        <meta name="MSHAttr" content="PreferredSiteName:technet" />
+    
+        <meta name="MSHAttr" content="PreferredLib:sysinternals" />
+    
+        <meta name="Search.MSCategory" content="bb545025" />
+    
+        <meta name="Search.MSCategory" content="bb545026" />
+    
+        <meta name="Search.MSCategory" content="bb898844" />
+    
+        <meta name="Search.MSCategory" content="bb896651" />
+    
+        <meta name="Search.TocNodeId" content="bb896651" />
+    
+        <meta name="ROBOTS" content="INDEX,FOLLOW" />
+    
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" data-do-not-move="true" data-provides="jQuery"></script>
+    <script type="text/javascript" src="https://i2-technet.sec.s-msft.com/Areas/Sto/Content/Scripts/jquery.partial.js" data-do-not-move="true" data-requires="jQuery" data-provides="jQuery.partial"></script>
+    
+
+    
+    
+    <script type="text/javascript" data-do-not-move="true">
+        //<![CDATA[
+        
+        window.appInsightsId = '34ac8cd9-5026-4b8c-bd79-e0c26f67812a';
+        //]]>
+    </script>
+    
+
+    <title>Disk Usage</title>
+    <link rel="stylesheet" type="text/css" href="https://i-technet.sec.s-msft.com/Combined.css?resources=0:Teaser,0:Search,0:LocaleSelector,1:TabStrip,0:Footer,1:Footer,0:RatingsOnly,0:NetReflector,1:NetReflector,0:CorporatePromoSpot,0:ShareThis,0:Default,1:Default,2:Default,3:Default;/Areas/Sto/Content/Theming:0,/Areas/Sto/Content/Theming/technet:1,/Areas/Sto/Content/Theming/technet/tn_metro:2,/Areas/Sto/Content/Theming/technet/tn_metro/HomeHub:3&amp;amp;v=84FE81C153E96C668487A12B69C48843" /></head>
+    
+    <body id="MTPS_Body" class="TechNetPageBody">
+        
+        
+
+        
+        <div id="BodyBackground">
+            <div id="JelloSizer">
+                <div id="JelloExpander">
+                    <div id="JelloWrapper">
+                        <div class="Clear"> </div>
+                        <span class="skipnav"><a href="#MainContent">Skip to main content</a></span>
+                        
+<div class="Masthead">
+    
+<div class="BrandLogo">
+  <a title="Windows Sysinternals" href="https://technet.microsoft.com/en-us/sysinternals">
+    <span>
+      Windows Sysinternals
+    </span>
+  </a>
+</div>
+
+
+<div class="Search">    
+    <div class="SearchBox">
+    <form name="HeaderSearchForm" method="get" action="https://social.technet.microsoft.com/search/">
+        <input type="hidden" name="SearchAction" value="search" />
+        <input id="HeaderSearchTextBox" name="query" class="TextBoxSearch" type="text" title="Search MSDN" />
+        <input id="HeaderSearchButton" onclick="if (document.getElementById('HeaderSearchTextBox').value != document.getElementById('HeaderSearchTextBox').title) {window.location = 'https://social.msdn.microsoft.com/search/en-us/?query=' + document.getElementById('HeaderSearchTextBox').value; return true;} else return false;" class="SearchButton" type="button" alt="Click here to search" title="Click here to search" />
+        <span class="Bing"></span>
+        
+    </form>
+    </div>
+</div>
+
+    <div class="GlobalBar">
+        
+<div class="PassportScarab">
+    <a id="idPPScarab" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1442282968&amp;rver=6.0.5276.0&amp;wp=MCMBI&amp;wlcxt=technet%24technet%24technet&amp;wreply=https%3a%2f%2ftechnet.microsoft.com%2fen-us%2fsysinternals%2fbb896651.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US"><span id="idPPScarabSIT">Sign in</span></a>
+</div>
+<div id="LocaleSelector">
+    <form id="ChangeLocaleForm" action="/en-us/sysinternals/SelectLocale?pageid=bb896651">    
+        <input type="hidden" name="fromPage" value="/en-us/sysinternals/bb896651.aspx?f=255&amp;amp;MSPPError=-2147217396" />
+        <div id="FlyoutTop">
+            <a title="Change your language" href="#Change your language" onclick="$('#ChangeLocaleForm').submit();return false;" id="LinkCountryLanguage" class="LocaleManagementFlyoutStaticLink">
+                    United States (English)
+                </a>
+        </div>
+    </form>
+</div>
+
+        <div class="Clear">
+        </div>
+        
+    </div>
+    <div class="Clear">
+    </div>
+    
+<div class="networkTagLineArea NetworkLogo">
+  
+        <a title="Resources for IT Professionals" href="https://technet.microsoft.com/en-us"></a>
+   
+</div>
+
+<div class="leftcap"></div>
+    <div class="internav">
+    
+<a href="https://technet.microsoft.com/en-us/sysinternals/default" class="normal" title="Home">
+Home</a>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb469930" class="normal" title="Learn">
+Learn</a>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb545027" class="active" title="Downloads">
+Downloads</a>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb469929" class="normal" title="Community">
+Community</a>
+</div>
+<div class="rightcap"></div>
+<div class="Clear"></div>
+
+</div>
+
+
+                        <div class="Clear"> </div>
+                        <div class="topleftcorner"> </div>
+                        <div class="toprightcorner"> </div>
+                        <div class="alley">
+                            <div class="wrapper">
+                                <div class="inner">
+                                
+                                    <div class="Clear"> </div>
+                                    <div class="BreadCrumb"><div class="BreadCrumbInner EyebrowContainer">
+<a href="https://technet.microsoft.com/en-us/sysinternals/default" class="EyebrowLink" title="Windows Sysinternals">
+Windows Sysinternals</a> &gt; 
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb545027" class="EyebrowLink" title="Downloads">
+Downloads</a> &gt; 
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb545046" class="EyebrowLink" title="File and Disk Utilities">
+File and Disk Utilities</a> &gt; <span class="EyebrowElement">Disk Usage</span>
+    
+    </div></div>
+                                    <a name="MainContent"></a>
+                                    <table class="multicol"><tr><td valign="top" class="innercol"><div class="MainColumn"><table class="multicol"><tr><td valign="top" class="innercol"><div class="LeftNavigation "><div class="BostonPostCard" id=""><h3 class="nobar">Utilities</h3><ul><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb842062" title="Sysinternals Suite">
+Sysinternals Suite</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb545027" title="Utilities Index">
+Utilities Index</a></li></ul><hr /><ul><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb545046" title="File and Disk Utilities">
+File and Disk Utilities</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb795532" title="Networking Utilities">
+Networking Utilities</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb795533" title="Process Utilities">
+Process Utilities</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb795534" title="Security Utilities">
+Security Utilities</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb795535" title="System Information">
+System Information Utilities</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb842059" title="Miscellaneous Utilities">
+Miscellaneous Utilities</a></li></ul></div><div class="BostonPostCard" id=""><h3>Additional Resources</h3><ul><li>
+<a href="http://forum.sysinternals.com/" title="Forum">
+Forum</a></li><li>
+<a href="http://blogs.technet.com/Sysinternals" title="Site Blog">
+Site Blog</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb469930" title="Sysinternals Learning">
+Sysinternals Learning</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb963887" title="Mark's Webcasts">
+Mark's Webcasts</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb963890" title="Mark's Blog">
+Mark's Blog</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb469936" title="Software License">
+Software License</a></li><li>
+<a href="https://technet.microsoft.com/en-us/sysinternals/bb847944" title="Licensing FAQ">
+Licensing FAQ</a></li></ul></div></div></td><td valign="top"><div class="MiddleColumn"><h1>Disk Usage v1.5</h1><p><strong>By Mark Russinovich</strong></p><p>Published: March 27, 2013</p><p>
+<a href="https://download.sysinternals.com/files/DU.zip">
+<img align="left" alt="" height="25" src="https://i-technet.sec.s-msft.com\en-us\sysinternals\ee694644.Download_sm(en-us,MSDN.10).png" width="25" /> <strong>Download Du</strong><br /></a><strong>(115 KB)</strong></p>
+    <div id="rtgContainer" class="DivRatingsOnly">
+      <table class="tableCss">
+        <tr>
+          <td class="tableCellRateCss"><strong>
+            <span class="tbFont">Rate: </span> </strong>
+          </td>
+            <td class="tableCellRateControlCss" id="tdRtg">
+                <a class="ratingsOnlyClass" style="text-decoration:none;" title="Click a star and provide feedback">
+                    
+                    <span class="ratingStar emptyRatingStar ratingsOnlyStar" id="Star_1"></span>
+                    
+                    <span class="ratingStar emptyRatingStar ratingsOnlyStar" id="Star_2"></span>
+                    
+                    <span class="ratingStar emptyRatingStar ratingsOnlyStar" id="Star_3"></span>
+                    
+                    <span class="ratingStar emptyRatingStar ratingsOnlyStar" id="Star_4"></span>
+                    
+                    <span class="ratingStar emptyRatingStar ratingsOnlyStar" id="Star_5"></span>
+                    
+                </a>
+            </td>
+        </tr>
+      </table>
+    </div>   
+    
+    
+
+  <div style="clear:both;margin-top:1em">
+<div class="STMain" style="width: 275px">
+    
+    <div style="float: left;" class="ShareThis_RootButton">
+        <a class="ShareThis_BtnLink">
+            
+            <span title="Share this content">
+                Share this content</span>
+            </a></div>
+    
+    <div style="float: left;" class="ShareThis_ChildRootPanel">
+        <div style="float: left;" class="TierOneButtons1">
+            <div class="buttonPanel">
+                 
+                <a class="iconsOnPanel" title="E-mail" href="mailto:?subject=Disk Usage&amp;Body=https://technet.microsoft.com/en-us/sysinternals/bb896651.aspx?f=255&amp;MSPPError=-2147217396">
+                    <img alt="#" style="border-width: 0px;" title="E-mail" src="https://i-technet.sec.s-msft.com/Areas/Sto/Content/Images/ShareThis/email.gif?v=635768414688472439" />
+                </a><a class="buttonPanelHyperLink" title="E-mail" href="mailto:?subject=Disk Usage&amp;Body=https://technet.microsoft.com/en-us/sysinternals/bb896651.aspx?f=255&amp;MSPPError=-2147217396">
+                </a>
+                
+            </div>
+            <div class="buttonPanel">
+                 
+                <a class="iconsOnPanel" title="Twitter" href="http://twitter.com/home?status=Disk%20Usage : https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396">
+                    <img alt="#" style="border-width: 0px;" title="Twitter" src="https://i-technet.sec.s-msft.com/Areas/Sto/Content/Images/ShareThis/twitter.gif?v=635768414692691316" />
+                </a><a class="buttonPanelHyperLink" title="Twitter" href="http://twitter.com/home?status=Disk%20Usage : https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396">
+                </a>
+                
+            </div>
+            <div class="buttonPanel">
+                 
+                <a class="iconsOnPanel" title="del.icio.us" href="http://del.icio.us/post?url=https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396&amp;title=Disk%20Usage">
+                    <img alt="#" style="border-width: 0px;" title="del.icio.us" src="https://i-technet.sec.s-msft.com/Areas/Sto/Content/Images/ShareThis/delicious.gif?v=635768414688003717" />
+                </a><a class="buttonPanelHyperLink" title="del.icio.us" href="http://del.icio.us/post?url=https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396&amp;title=Disk%20Usage">
+                </a>
+                
+            </div>
+            <div class="buttonPanel">
+                 
+                <a class="iconsOnPanel" title="Digg" href="http://digg.com/submit?url=https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396&amp;title=Disk%20Usage">
+                    <img alt="#" style="border-width: 0px;" title="Digg" src="https://i-technet.sec.s-msft.com/Areas/Sto/Content/Images/ShareThis/digg.gif?v=635768414688003717" />
+                </a><a class="buttonPanelHyperLink" title="Digg" href="http://digg.com/submit?url=https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396&amp;title=Disk%20Usage">
+                </a>
+                
+            </div>
+            <div class="buttonPanel">
+                 
+                <a class="iconsOnPanel" title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396&amp;t=Disk%20Usage">
+                    <img alt="#" style="border-width: 0px;" title="Facebook" src="https://i-technet.sec.s-msft.com/Areas/Sto/Content/Images/ShareThis/facebook.gif?v=635768414688628731" />
+                </a><a class="buttonPanelHyperLink" title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Fsysinternals%2Fbb896651.aspx%3Ff%3D255%26MSPPError%3D-2147217396&amp;t=Disk%20Usage">
+                </a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+</div><div style="height:1px;clear:both"> </div><div class="BostonPostCard"><h3 class="nobar">Introduction</h3><p>Du (disk usage) reports the disk space usage for the directory you specify. By default it recurses directories to show the total size of a directory and its subdirectories.</p><h3>Using Disk Usage (DU)</h3><p><strong>Usage: du [-c[t]] [-l &lt;levels&gt; | -n | -v] [-u] [-q] &lt;directory&gt;</strong></p><table border="0" cellpadding="5" cellspacing="5" width="100%"><colgroup><col width="48" /><col width="*" /></colgroup><tr align="left" valign="top"><td><strong>-c</strong></td><td>Print output as CSV. Use -ct for tab delimiting.</td></tr><tr align="left" valign="top"><td><strong>-l</strong></td><td>Specify subdirectory depth of information (default is all levels).</td></tr><tr align="left" valign="top"><td><strong>-n</strong></td><td>Do not recurse.</td></tr><tr align="left" valign="top"><td><strong>-v</strong></td><td>Show size (in KB) of intermediate directories.</td></tr><tr align="left" valign="top"><td><strong>-u</strong></td><td>Count each instance of a hardlinked file.</td></tr><tr align="left" valign="top"><td><strong>-q</strong></td><td>Quiet (no banner).</td></tr></table><p> </p><p>CSV output is formatted as:</p><p>Path, CurrentFileCount, CurrentFileSize, FileCount, DirectoryCount, DirectorySize</p><p>
+<a href="https://download.sysinternals.com/files/DU.zip">
+<img align="left" alt="Download" height="55" src="https://i-technet.sec.s-msft.com\en-us\sysinternals\ee694644.Download_lg(en-us,MSDN.10).png" style="margin-right:1em" title="Download" width="55" /></a></p><p>
+<a href="https://download.sysinternals.com/files/DU.zip">
+<strong>Download Du</strong><br /></a><strong>(115 KB)</strong></p></div></div></td></tr></table></div></td><td valign="top"><div class="RightAdRail"><div style="margin-top:0px; margin-bottom:10px"></div><div class="BostonPostCard"><h3>Download</h3><p>
+<a href="https://download.sysinternals.com/files/DU.zip">
+<img align="left" alt="Download" height="55" src="https://i-technet.sec.s-msft.com\en-us\sysinternals\ee694644.Download_lg(en-us,MSDN.10).png" style="margin-right:1em" title="Download" width="55" /></a></p><p>
+<a href="https://download.sysinternals.com/files/DU.zip">
+<br /><strong>Download Du</strong></a><br /><strong>(115 KB)</strong></p><p><br /><strong>Runs on:</strong></p><ul><li>Client: Windows XP and higher.</li><li>Server: Windows Server 2003 and higher.</li></ul></div></div></td></tr></table>
+                                     
+    <div id="footerAd" style="margin-left:auto;margin-right:auto;display:table">
+        <div><p></p></div>
+    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ClearBottom"> </div>
+                        <div class="bottomleftcorner"> </div>
+                        <div class="bottomrightcorner"> </div>  
+                        <div class="FooterLinks"><div class="hpFtr_Outer"><div class="hpFtr_Logo"><div id="logoContainer" title=""></div></div><div class="hpFtr_Copyright">© 2015 Microsoft</div></div><div class="hpFtr_Inner" dir="ltr"><ul class="nobullet"><li>
+<a href="http://go.microsoft.com/?linkid=8786243">
+Manage Your Profile</a></li></ul><ul class="nobullet" id="footerLinksRowTwo"><li>
+<a href="https://technet.microsoft.com/cc543196.aspx">
+Newsletter</a></li><li>
+<a href="https://technet.microsoft.com/cc512759.aspx">
+Contact Us</a></li><li>
+<a href="http://go.microsoft.com/fwlink/?LinkId=248681">
+Privacy Statement</a></li><li href="http://www.microsoft.com/info/privacy.mspx">
+<a href="https://technet.microsoft.com/cc300389">
+Terms of Use</a></li><li>
+<a href="https://www.microsoft.com/About/Legal/EN/US/IntellectualProperty/Trademarks/EN-US.aspx">
+Trademarks</a></li>
+<li>
+    
+    <span class="Pipe"> | </span>
+    <a target="_blank" id="bottomsitefeedbacklink" title="Site Feedback" href="https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=https%3a%2f%2ftechnet.microsoft.com%2fen-us%2fsysinternals%2fbb896651.aspx%3ff%3d255%26MSPPError%3d-2147217396.aspx&amp;loc=en-us">Site Feedback</a>
+</li>
+</ul></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <link type="text/css" rel="stylesheet" href="https://i-technet.sec.s-msft.com/Areas/EPX/Themes/Shared/Content/Megablade.1.css?v=635768425519709214" data-do-not-move="true" />
+    <div id="megabladeContainer">
+        <div id="megabladeContainerCenter">
+            <ul id="megabladeItems">
+                <li class="Logo"><a href="https://technet.microsoft.com/" title="TechNet">TechNet</a></li>
+                        <li data-value="hh326172" class="bladeItem bladeItemWithMenu"><a class="label" href="" onclick="return false;">Products</a><span class="caret"></span></li>
+                        <li data-value="hh880860" class="bladeItem bladeItemWithMenu"><a class="label" href="" onclick="return false;">IT Resources</a><span class="caret"></span></li>
+                        <li data-value="hh371326" class="bladeItem bladeItemWithMenu"><a class="label" href="" onclick="return false;">Downloads</a><span class="caret"></span></li>
+                        <li data-value="jj837158" class="bladeItem bladeItemWithMenu"><a class="label" href="" onclick="return false;">Training</a><span class="caret"></span></li>
+                        <li data-value="hh371327" class="bladeItem bladeItemWithMenu"><a class="label" href="" onclick="return false;">Support</a><span class="caret"></span></li>
+            </ul>
+            <div class="bladeItemMenuContainer">
+                    <div data-value="hh326172" class="bladeItemMenu" style="display: none;">
+                        <div class="menuContainerLayout">
+  <h5>Products</h5>
+  <ul>
+    <li>
+      <a href="https://technet.microsoft.com/windows">Windows</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/windowsserver">Windows Server</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/systemcenter">System Center</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/ie">Internet Explorer</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayout">
+  <h5> </h5>
+  <ul>
+    <li>
+      <a href="https://technet.microsoft.com/office">Office</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/office365">Office 365</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/exchange">Exchange Server</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayout">
+  <h5> </h5>
+  <ul>
+    <li>
+      <a href="https://technet.microsoft.com/sql">SQL Server</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/sharepoint">SharePoint Products</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/en-us/office/dn788773">Skype for Business</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/en-us/bb421517.aspx?wt.svl=more_centers_link">See all products »</a>
+    </li>
+  </ul>
+</div>
+                    </div>
+                    <div data-value="hh880860" class="bladeItemMenu" style="display: none;">
+                        <div class="menuContainerLayout">
+  <h5>Resources</h5>
+  <ul>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200157772">Evaluation Center</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/bb291022">Learning Resources</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/en-us/dn440144">Microsoft Tech Companion App</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/dn550853" title="Microsoft Technical Communities">Microsoft Technical Communities</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200157774">Microsoft Virtual Academy</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/scriptcenter">Script Center</a>
+    </li>
+    <li>
+      <a href="http://blogs.technet.com/serverandtools">Server and Tools Blogs</a>
+    </li>
+    <li>
+      <a href="http://blogs.technet.com/">TechNet Blogs</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayout">
+  <h5> </h5>
+  <ul>
+    <li>
+      <a href="https://technet.microsoft.com/cc543196">TechNet Flash Newsletter</a>
+    </li>
+    <li>
+      <a href="http://gallery.technet.microsoft.com/">TechNet Gallery</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/library/default.aspx">TechNet Library</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/magazine">TechNet Magazine</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/subscriptions">TechNet Subscriptions</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/video">TechNet Video</a>
+    </li>
+    <li>
+      <a href="http://social.technet.microsoft.com/wiki">TechNet Wiki</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/sysinternals">Windows Sysinternals</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/virtuallabs">Virtual Labs</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>Solutions</h5>
+  <ul>
+    <li>
+      <a href="https://technet.microsoft.com/network">Networking</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/cloud/private-cloud">Cloud and Datacenter</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/security">Security</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/virtualization">Virtualization</a>
+    </li>
+  </ul>
+</div>
+                    </div>
+                    <div data-value="hh371326" class="bladeItemMenu" style="display: none;">
+                        <div class="menuContainerLayout">
+  <h5>Updates</h5>
+  <ul>
+    <li>
+      <a href="http://support.microsoft.com/default.aspx?id=fh;en-us;sp&amp;fr=0&amp;sd=gn&amp;ln=en-us&amp;ct=sd&amp;se=nona">Service Packs</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/security/bulletin">Security Bulletins</a>
+    </li>
+    <li>
+      <a href="http://fe1.update.microsoft.com/microsoftupdate/v6/vistadefault.aspx?ln=en-US">Microsoft Update</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>Trials</h5>
+  <ul>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200229291">Windows Server 2012 R2</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200229349">System Center 2012 R2</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200156426">Microsoft SQL Server 2012 SP1</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/en-us/evalcenter/hh699156">Windows 8.1 Enterprise</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200157775" title="See all trials">See all trials »</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>Related Sites</h5>
+  <ul>
+    <li>
+      <a href="https://www.microsoft.com/downloads/search.aspx">Microsoft Download Center</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200157776">TechNet Evaluation Center</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/download/driver.aspx?q=driver">Drivers</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/sysinternals">Windows Sysinternals</a>
+    </li>
+    <li>
+      <a href="http://gallery.technet.microsoft.com/">TechNet Gallery</a>
+    </li>
+  </ul>
+</div>
+                    </div>
+                    <div data-value="jj837158" class="bladeItemMenu" style="display: none;">
+                        <div class="menuContainerLayout">
+  <h5>Training</h5>
+  <ul>
+    <li>
+      <a href="http://learning.microsoft.com/Manager/BrowseCatalog.aspx?browse=PT">Training Catalog</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/classlocator.aspx">Class Locator</a>
+    </li>
+    <li>
+      <a href="http://www.microsoftvirtualacademy.com/">Microsoft Virtual Academy</a>
+    </li>
+    <li>
+      <a href="http://www.microsoftvirtualacademy.com/training-courses/windows-server-2012-technical-overview">Free Windows Server 2012 courses</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200155697" title="Free Windows 8 courses">Free Windows 8 courses</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/training/sql-server.aspx">SQL Server training</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/training/format-online.aspx">e-Learning overview</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>Certifications</h5>
+  <ul>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/certification/cert-overview.aspx">Certification overview</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/windows-certification.aspx" title="MCSA: Windows 8 ">MCSA: Windows 8</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/certification/cert-windowsserver.aspx">Windows Server Certification (MCSE)</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/certification/cert-private-cloud.aspx">Private Cloud Certification (MCSE)</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/certification/cert-sql-server.aspx">SQL Server Certification (MCSE)</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>Other resources</h5>
+  <ul>
+    <li>
+      <a href="http://www.technetevents.com/">TechNet Events</a>
+    </li>
+    <li>
+      <a href="https://www.microsoft.com/learning/en/us/offers/secondshot.aspx">Second shot for certification</a>
+    </li>
+    <li>
+      <a href="http://borntolearn.mslearn.net/btl/b/default.aspx">Born To Learn blog</a>
+    </li>
+    <li>
+      <a href="https://www.technicalcommunity.com/Map.aspx" title="Microsoft Technical Communities">Find technical communities in your area</a>
+    </li>
+  </ul>
+</div>
+                    </div>
+                    <div data-value="hh371327" class="bladeItemMenu" style="display: none;">
+                        <div class="menuContainerLayout">
+  <h5>Support options</h5>
+  <ul>
+    <li>
+      <a href="http://smallbusiness.support.microsoft.com/en-us/contact">For small and midsize businesses</a>
+    </li>
+    <li>
+      <a href="https://premier.microsoft.com">For enterprises</a>
+    </li>
+    <li>
+      <a href="https://msdn.microsoft.com/en-us/hh361695">For developers</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/en-us/ms772425 ">For IT professionals</a>
+    </li>
+    <li>
+      <a href="http://pinpoint.microsoft.com/en-US/home">From partners</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayout">
+  <h5> </h5>
+  <ul>
+    <li>
+      <a href="https://support.microsoft.com/oas">For technical support</a>
+    </li>
+    <li>
+      <a href="http://support.microsoft.com/gp/contactus81?Audience=Commercial">Support offerings</a>
+    </li>
+    <li>
+      <a href="http://support.microsoft.com/">For home users</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>More support</h5>
+  <ul>
+    <li>
+      <a href="https://premier.microsoft.com/">Microsoft Premier Online</a>
+    </li>
+    <li>
+      <a href="http://support.microsoft.com/fixit/">Microsoft Fix It Center</a>
+    </li>
+    <li>
+      <a href="http://social.technet.microsoft.com/Forums/en-us/categories/">TechNet Forums</a>
+    </li>
+    <li>
+      <a href="http://social.msdn.microsoft.com/Forums/en-US/categories/">MSDN Forums</a>
+    </li>
+    <li>
+      <a href="https://technet.microsoft.com/en-us/security/bulletin">Security Bulletins &amp; Advisories</a>
+    </li>
+    <li>
+      <a href="http://support.microsoft.com/common/international.aspx">International support solutions</a>
+    </li>
+    <li>
+      <a href="http://support.microsoft.com/select/default.aspx?target=assistance">Log a support ticket</a>
+    </li>
+  </ul>
+</div><div class="menuContainerLayoutSplashGuard"></div><div class="menuContainerLayout">
+  <h5>Not an IT pro?</h5>
+  <ul>
+    <li>
+      <a href="http://support.microsoft.com/">Microsoft Customer Support</a>
+    </li>
+    <li>
+      <a href="http://answers.microsoft.com/en-us">Microsoft Community Forums</a>
+    </li>
+  </ul>
+</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+
+        
+
+
+<noscript>
+<img alt="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsjwb9vb00000c932fd0rjc7_5p3t/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" />
+</noscript>
+        
+        
+
+
+
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-technet.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-technet.sec.s-msft.com\", \r\n\t\"css\": \"https://i-technet.sec.s-msft.com\", \r\n\t\"xap\": \"https://technet.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "https://i2-technet.sec.s-msft.com/Combined.js?resources=0:jquery.cookie,1:Utilities,1:AppInsightsPerf;/Areas/Sto/Content/Scripts:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=1F1DA74E420DE270E9FED7D1C1717E7B\u0026amp;v=4F288A7F8824F7FE79956FB7E36C5249" },
+	{ txt: "//\n    function SearchClick() {\n        window.location = \"https://social.msdn.microsoft.com/search/en-us/?query=\" + document.getElementById(\"HeaderSearchTextBox\").value();\n    }\n\n    function SearchClientClick() {\n        if (document.getElementById(\"HeaderSearchTextBox\").value == document.getElementById(\"HeaderSearchTextBox\").title) return false;\n        document.HeaderSearchForm.submit();return true;\n    }\n//" },
+	{ txt: "//\n            $(document).ready(function () {\n                var scriptElem = document.createElement(\u0027script\u0027);\n                scriptElem.src = \"https://i3.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\\u0026btnid=HeaderSearchButton\\u0026brand=TechNet\\u0026loc=en-us\\u0026watermark=TechNet\\u0026focusOnInit=false\";\n                scriptElem.id = \"mscom.srch.searchBox\";\n                scriptElem.defer=\"defer\";\n                document.getElementsByTagName(\u0027head\u0027)[0].appendChild(scriptElem);\n            });\n        //" },
+	{ txt: "/**/\n        if (!$.Microsoft) $.Microsoft = {};\n        if (!$.Microsoft.Mtps) $.Microsoft.Mtps = {};\n        if (!$.Microsoft.Mtps.StoRating) $.Microsoft.Mtps.StoRating = {};\n        if (!$.Microsoft.Mtps.StoRating.StoRatingInit) \n            $.Microsoft.Mtps.StoRating.StoRatingInit = {\n                IsObjectRated: false,\n                CurUserId: \"\",\n                ClientURL: \"https://technet.microsoft.com/en-us/sysinternals/bb896651.aspx?f=255\u0026MSPPError=-2147217396\",\n                maxRating: 5,\n                PageId: \"bb896651\",\n                pageTag: \"contentRatingbb896651msdn.10en-us\",\n                curRating: 0,\n                contentRated: false,\n                RatingTooltipText: \"Click a star and provide feedback\",\n                RatedTooltipText: \"You have already rated this content. Thank you for your feedback.\",\n                userIPAddress: \"98.103.147.31\",\n                webserviceloc: \"https://technet.microsoft.com/en-us/sysinternals/Rating/bb896651\"\n            };\n        /**/" },
+	{ url: "https://i2-technet.sec.s-msft.com/Combined.js?resources=0:RatingsOnly,0:SiteFeedback;/Areas/Sto/Content/Scripts:0\u0026amp;hashKey=825FC17EF9D4DB9104775C310E8D724B\u0026amp;v=4F288A7F8824F7FE79956FB7E36C5249" },
+	{ txt: "var omnitureTracking = \"false\";" },
+	{ url: "https://i2-technet.sec.s-msft.com/Areas/Epx/Themes/Shared/Content/megablade.1.js" },
+	{ txt: "/**/\n    \n      var wt_nvr_ru = \"WT_NVR_RU\";\n      var wt_fpcdom = \".microsoft.com\";\n      var wt_domlist = \"technet.microsoft.com\";\n      var wt_pathlist = \"/technet/\";var wt_paramlist = \"DCSext.mtps_techcenter\";\n      var wt_siteid = \"TECHNET\";\n      var gDomain=\"m.webtrends.com\";\n    \n    var gDcsId = \"dcsjwb9vb00000c932fd0rjc7_5p3t\";\n    var gFpc = \"WT_FPC\";\n    if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n        var scriptElem = document.createElement(\u0027script\u0027);\n        scriptElem.src = \"http\" + (window.location.protocol.indexOf(\u0027https:\u0027) == 0 ? \u0027s\u0027 : \u0027\u0027) + \"://\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n        document.getElementsByTagName(\u0027head\u0027)[0].appendChild(scriptElem);\n    }\n    var detectedLocale = \"en-us\";\n    var wtsp = \"_technet_sysinternals_\";\n    var gTrackEvents = \"0\";\n    /**/" },
+	{ url: "https://i2-technet.sec.s-msft.com/Areas/Sto/Content/Scripts/webtrendsscript.js" },
+	{ url: "https://nexus.ensighten.com/technet/Bootstrap.js" },
+	{ url: "https://www.microsoft.com/library/svy/sto/https/broker.js" }
+]);
+
+/*]]>*/
+</script></body>
+
+    
+<![CDATA[     
+Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.
+]]>
+</html>

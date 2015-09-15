@@ -48,7 +48,7 @@ if not "x!versionOutput:Version 5.1=!"=="x%versionOutput%" (
     goto _xperror
 )
 endlocal
-goto _error
+goto _oserror
 
 :: =================================================
 :: Network Drive & Copy Paths
@@ -57,6 +57,10 @@ goto _error
 :: change userDirectory path to the network drive
 set userDirectory=C:\Users\kevin\Desktop\
 :: set userDirectory=\\192.168.1.50\backup\
+
+if not exist "%userDirectory%" (
+    goto _networkerror
+)
 
 :: change copyFromDirectory path to the path to copy from
 set copyFromDirectory=%driveLetter%:\Users\Kevin\Desktop\from_here
@@ -85,7 +89,8 @@ echo.
 echo   ----------------- Backup Location -----------------
 echo   From which location are you running the backup utility?
 echo     1 - User's Computer
-echo     2 - Backup Station
+echo     2 - Preinstallation Environment ^(PE^)
+echo     3 - Backup Station
 echo.
 :_driveprompt
 set location=
@@ -94,6 +99,9 @@ if "%location%"=="1" (
     goto _keys
 )
 if "%location%"=="2" (
+    goto _keys
+)
+if "%location%"=="3" (
     goto _driveletter
 )
 goto _driveprompt
@@ -107,6 +115,9 @@ echo.
 echo   ----------------- Saving Keys -----------------
 set savekey=
 set /p savekey=%BS%  Would you like to save keys? (yes/no): 
+if "%location%"=="2" (
+    goto _driveletter
+)
 goto _prompt
 
 :: =================================================
@@ -198,6 +209,9 @@ goto _createFolder
 set folderName=%userDirectory%%flashline%-%phone%
 goto _createFolder
 :_createFolder
+if not exist "%userDirectory%" (
+    goto _networkerror
+)
 if not exist "%folderName%" mkdir "%folderName%"
 goto _keys
 
@@ -235,6 +249,9 @@ goto _copy
 :_copy
 echo.
 echo   Transferring files...
+if not exist "%userDirectory%" (
+    goto _networkerror
+)
 @echo %copyFromDirectory%^|%folderName%> %TEMP%\unstoppable.ucb
 :: +d means default and +z means calculate time remaining 
 UnstopCpy_5_2_Win2K_UP.exe +dz %TEMP%\unstoppable.ucb
@@ -254,6 +271,9 @@ echo   Original User Data:
 FOR /F "tokens=* delims= " %%A IN (%TEMP%\originalUserData.txt) DO ECHO.    %%A
 echo.
 echo   Getting backup data information (this could take awhile)...
+if not exist "%userDirectory%" (
+    goto _networkerror
+)
 du -q %folderName%>%TEMP%\dataOnBackup.txt
 ping 1.1.1.1 -n 1 -w 1500 > nul
 echo.
@@ -270,12 +290,25 @@ exit
 :: =================================================
 :: Errors
 :: =================================================
-:_error
-echo   No Valid OS Detected!
+:_oserror
+cls
+echo.
+echo   ERROR: No Valid OS Detected!
 ping 1.1.1.1 -n 1 -w 5000 > nul
 exit
 
 :_xperror
-echo   The Backup Utility is not supported on Windows XP.
+cls
+echo.
+echo   ERROR: The Backup Utility is not supported on Windows XP.
+ping 1.1.1.1 -n 1 -w 5000 > nul
+exit
+
+:_networkerror
+cls
+echo.
+echo   ERROR: The network drive was not detected.
+echo.
+echo   Please plug in a network cable and relaunch.
 ping 1.1.1.1 -n 1 -w 5000 > nul
 exit

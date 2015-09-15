@@ -7,9 +7,9 @@ automatically backup chrome bookmarks
 ability to image drive
 du shows in kilobytes
 no accept du terms
-user's-computer PE
 check for network drive first
-short sound after getting data information
+	short sound after getting data information
+	user's-computer PE
 	fix spaces before entering fields
 	prevent user from leaving fields blank
 	error messages before actions
