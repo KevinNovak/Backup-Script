@@ -5,6 +5,12 @@ add support for spaces in paths (and change user-entered note)
 xp support
 automatically backup chrome bookmarks
 ability to image drive
+fix spaces before entering fields
+short sound after getting data information
+du shows in kilobytes
+no accept du terms
+user's-computer PE
+check for network drive first
 	prevent user from leaving fields blank
 	error messages before actions
 	fix spacing for drive letters, name, etc
