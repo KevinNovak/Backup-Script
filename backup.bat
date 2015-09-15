@@ -71,6 +71,8 @@ for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
 echo.
 echo   The backup utility will back up the user's files to the network drive.
 echo.
+echo   Ensure the sound is enabled if you would like to be alerted.
+echo.
 set /p var=%BS%  Press Enter to Continue: 
 cls
 goto _drive
@@ -118,8 +120,9 @@ echo   Please select the drive letter containing the user's folder:
 echo     Launching Disk Management...
 ping 1.1.1.1 -n 1 -w 1000 > nul
 diskmgmt.msc
+ping 1.1.1.1 -n 1 -w 1000 > nul
 echo.
-set /p driveletter=%BS%  Drive Letter:
+set /p driveletter=%BS%  Drive Letter: 
 if not exist "%driveletter%:\Users" (
     echo   User's folder not found.
     ping 1.1.1.1 -n 1 -w 1000 > nul
@@ -222,6 +225,7 @@ FOR /F "tokens=* delims= " %%A IN (%TEMP%\originalUserData.txt) DO ECHO.    %%A
 echo.
 echo   Ensure the sound is enabled if you would like to be alerted.
 echo.
+start sWavPlayer.exe Alarm02.wav
 set /p var=%BS%  Press Enter to begin transfer: 
 goto _copy
 
