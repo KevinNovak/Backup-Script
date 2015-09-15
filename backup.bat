@@ -56,9 +56,11 @@ goto _error
 :_begin
 :: change userDirectory path to the network drive
 set userDirectory=C:\Users\kevin\Desktop\
+:: set userDirectory=\\192.168.1.50\backup\
 
 :: change copyFromDirectory path to the path to copy from
 set copyFromDirectory=%driveLetter%:\Users\Kevin\Desktop\from_here
+:: set copyFromDirectory=%driveLetter%:\Users
 
 :: define a variable containing a single backspace character
 for /f %%A in ('"prompt $H &echo on &for %%B in (1) do rem"') do set BS=%%A
@@ -112,21 +114,15 @@ goto _prompt
 cls
 echo.
 echo   ----------------- Drive Letter -----------------
-echo   Please select the drive letter containing the user's folder: 
-wmic /OUTPUT:%TEMP%\driveLetter.txt logicaldisk get deviceid, volumename, description
-TYPE %TEMP%\driveLetter.txt > %TEMP%\driveLetterANSI.txt
-FOR /F "tokens=* delims= " %%A IN (%TEMP%\driveLetterANSI.txt) DO ECHO.    %%A
-del %TEMP%\driveLetter.txt
-del %TEMP%\driveLetterANSI.txt
+echo   Please select the drive letter containing the user's folder:
+echo     Launching Disk Management...
+ping 1.1.1.1 -n 1 -w 1000 > nul
+diskmgmt.msc
 echo.
-set /p driveletter=%BS%  Drive Letter ('?' for help): 
-if "%driveletter%"=="?" (
-    diskmgmt.msc
-    goto _driveletter
-)
+set /p driveletter=%BS%  Drive Letter:
 if not exist "%driveletter%:\Users" (
     echo   User's folder not found.
-    ping 1.1.1.1 -n 1 -w 1000 > nul    
+    ping 1.1.1.1 -n 1 -w 1000 > nul
     goto _driveletter
 )
 
