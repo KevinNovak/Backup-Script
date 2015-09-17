@@ -1,6 +1,8 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
+show time of start-end, time elapsed
+show possible drive letters in prompt
 add support for spaces in paths (and change user-entered note)
 xp support
 automatically backup chrome bookmarks
