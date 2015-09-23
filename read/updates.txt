@@ -1,7 +1,9 @@
 ======================================================
 Backup Script - Updates (tabbed items are complete)
 ======================================================
-backup station gets keys
+GUI
+backup station gets keys and PE gets keys correctly
+print out report at end?
 show time of start-end, time elapsed
 show possible drive letters in prompt
 add support for spaces in paths (and change user-entered note)
