@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<title>How to make a self extracting archive runs your setup.exe, 7zip -sfx </title>
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all posts" href="http://ntsblog.homedev.com.au/index.php/feed/" />
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0 - all comments" href="http://ntsblog.homedev.com.au/index.php/comments/feed/" />
+	<link rel="pingback" href="http://ntsblog.homedev.com.au/xmlrpc.php" />
+
+	<!-- style START -->
+	<!-- default style -->
+	<style type="text/css" media="screen">@import url( http://ntsblog.homedev.com.au/wp-content/themes/inove/style.css );</style>
+	<!-- for translations -->
+		<!--[if IE]>
+		<link rel="stylesheet" href="http://ntsblog.homedev.com.au/wp-content/themes/inove/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<!-- style END -->
+
+	<!-- script START -->
+	<script type="text/javascript" src="http://ntsblog.homedev.com.au/wp-content/themes/inove/js/base.js"></script>
+	<script type="text/javascript" src="http://ntsblog.homedev.com.au/wp-content/themes/inove/js/menu.js"></script>
+	<!-- script END -->
+
+	
+<!-- SEO Ultimate (http://www.seodesignsolutions.com/wordpress-seo/) -->
+	<meta name="description" content="How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch, 7z -sfx. create self extracting exe 7zip" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:type" content="article" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:title" content="How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:description" content="How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch, 7z -sfx. create self extracting exe 7zip" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://ntsblog.homedev.com.au/index.php/2015/05/14/self-extracting-archive-runs-setup-exe-7zip-sfx-switch/" />
+	<meta property="article:published_time" content="2015-05-14" />
+	<meta property="article:modified_time" content="2015-06-18" />
+	<meta property="article:author" content="http://ntsblog.homedev.com.au/index.php/author/jcrawfor74/" />
+	<meta property="article:section" content="Scripts" />
+	<meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="Notes to self" />
+	<meta name="twitter:card" content="summary" />
+<!-- /SEO Ultimate -->
+
+<link rel="alternate" type="application/rss+xml" title="Notes to self &raquo; How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch Comments Feed" href="http://ntsblog.homedev.com.au/index.php/2015/05/14/self-extracting-archive-runs-setup-exe-7zip-sfx-switch/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/ntsblog.homedev.com.au\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='yarppWidgetCss-css'  href='http://ntsblog.homedev.com.au/wp-content/plugins/yet-another-related-posts-plugin/style/widget.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='gdsr_style_main-css'  href='http://ntsblog.homedev.com.au/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1356299287&#038;s=a10i10m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='gdsr_style_xtra-css'  href='http://ntsblog.homedev.com.au/wp-content/gd-star-rating/css/rating.css?ver=1.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='http://ntsblog.homedev.com.au/wp-content/plugins/jetpack/css/jetpack.css?ver=3.7' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal disabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-26952494-1']);
+	_gaq.push(['_gat._forceSSL']);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+<!-- / Google Analytics by Yoast -->
+<script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-content/plugins/gd-star-rating/js/gdsr.js?ver=1.9.22'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://ntsblog.homedev.com.au/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://ntsblog.homedev.com.au/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Terrible Performance of SQL Server Linked Server query over WAN' href='http://ntsblog.homedev.com.au/index.php/2015/04/14/terrible-performance-sql-server-linked-server-query-wan/' />
+<link rel='next' title='Clean the Windows Installer Folder' href='http://ntsblog.homedev.com.au/index.php/2015/06/01/clean-windows-installer-folder/' />
+<meta name="generator" content="WordPress 4.3.1" />
+<link rel='canonical' href='http://ntsblog.homedev.com.au/index.php/2015/05/14/self-extracting-archive-runs-setup-exe-7zip-sfx-switch/' />
+<link rel='shortlink' href='http://wp.me/p1Yv9q-k0' />
+<script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "f34f1504a7";
+var gdsr_cnst_ajax = "http://ntsblog.homedev.com.au/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script>
+<!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]-->
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+
+<body>
+<!-- wrap START -->
+<div id="wrap">
+
+<!-- container START -->
+<div id="container"  >
+
+<!-- header START -->
+<div id="header">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<div id="caption">
+		<h1 id="title"><a href="http://ntsblog.homedev.com.au/">Notes to self</a></h1>
+		<div id="tagline">my brain dump of solutions to technical problems</div>
+	</div>
+
+	<div class="fixed"></div>
+</div>
+<!-- header END -->
+
+<!-- navigation START -->
+<div id="navigation">
+	<!-- menus START -->
+	<ul id="menus">
+		<li class="page_item"><a class="home" title="Home" href="http://ntsblog.homedev.com.au/">Home</a></li>
+		<li class="page_item page-item-5"><a href="http://ntsblog.homedev.com.au/index.php/about/">About</a></li>
+<li class="page_item page-item-33"><a href="http://ntsblog.homedev.com.au/index.php/software-resources/">Software Resources</a></li>
+<li class="page_item page-item-703"><a href="http://ntsblog.homedev.com.au/index.php/code-snippets/">Code Snippets</a></li>
+<li class="page_item page-item-981"><a href="http://ntsblog.homedev.com.au/index.php/ssrs-tips-tricks/">SSRS Tips and Tricks</a></li>
+		<li><a class="lastmenu" href="javascript:void(0);"></a></li>
+	</ul>
+	<!-- menus END -->
+
+	<!-- searchbox START -->
+	<div id="searchbox">
+					<form action="http://ntsblog.homedev.com.au" method="get">
+				<div class="content">
+					<input type="text" class="textfield" name="s" size="24" value="" />
+					<input type="submit" class="button" value="" />
+				</div>
+			</form>
+			</div>
+<script type="text/javascript">
+//<![CDATA[
+	var searchbox = MGJS.$("searchbox");
+	var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
+	var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+	searchbtn.onclick = function(e) {
+		if(searchtxt.value == "" || searchtxt.value == tiptext) {
+			return false;
+		}
+	}
+//]]>
+</script>
+	<!-- searchbox END -->
+
+	<div class="fixed"></div>
+</div>
+<!-- navigation END -->
+
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+
+	<div id="postpath">
+		<a title="Go to homepage" href="http://ntsblog.homedev.com.au/">Home</a>
+		 &gt; <a href="http://ntsblog.homedev.com.au/index.php/category/scripts/" rel="category tag">Scripts</a>		 &gt; How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch	</div>
+
+	<div class="post" id="post-1240">
+		<h2>How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch</h2>
+		<div class="info">
+			<span class="date">May 14th, 2015</span>
+			<span class="author"><a href="http://ntsblog.homedev.com.au/index.php/author/jcrawfor74/" title="Posts by jcrawfor74" rel="author">jcrawfor74</a></span>										<span class="addcomment"><a href="#respond">Leave a comment</a></span>
+				<span class="comments"><a href="#comments">Go to comments</a></span>
+						<div class="fixed"></div>
+		</div>
+		<div class="content">
+			
+<!-- Easy Plugin for AdSense V8.60 -->
+<!-- [leadin: 0 urCount: 0 urMax: 0] -->
+<div class="ezAdsense adsense adsense-leadin" style="text-align:center;margin:-4px;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6288941070289539";
+/* Horizontal Blog Header */
+google_ad_slot = "9356781486";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<!-- Easy Plugin for AdSense V8.60 -->
+<h2>The scenario</h2>
+<p>When you use the default Microsoft Visual Studio Installer (yes, it is back as an extension for VS 2013 &#8211; <a href="https://visualstudiogallery.msdn.microsoft.com/9abe329c-9bba-44a1-be59-0fbf6151054d" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'https://visualstudiogallery.msdn.microsoft.com/9abe329c-9bba-44a1-be59-0fbf6151054d', 'Visual studio Installer Projects Extension']);" target="_blank">Visual studio Installer Projects Extension</a>), the output are two files:</p>
+<ol>
+<li>installer.msi &#8211; the .msi installation file</li>
+<li>setup.exe &#8211; which is the bootstrap that does your pre-requisite checks</li>
+</ol>
+<p>So you want to provide a download for your product from your website as a single file. </p>
+<p>Some possible options include:</p>
+<ol>
+<li>Zip the two files &#8211; the user has to download a zip, extract the zip and run the setup.exe</li>
+<li>Just provide the msi file, but this by passes the pre-requisite checks which is not ideal; or</li>
+<li>Create a self extracting archive that runs, extracts the software and then calls the setup.exe </li>
+</ol>
+<p>The self extracting archive option seems the best.</p>
+<h2>The problem</h2>
+<p>I wanted to use 7Zip to create the self extracting archive but I could not seem to find a simple guide that explained exactly how to do it.</p>
+<p>I have finally worked it out and below are some detailed instructions.</p>
+<h2>How to make a self extracting archive that launches your installer after extraction</h2>
+<p>It is actually quite simple to do if you follow these easy steps.</p>
+<h3>Step 1 &#8211; Setup your installation folder</h3>
+<p>To make this easy create a folder c:\Install. This is where we will copy all the required files.</p>
+<h3>Step 2 &#8211; 7Zip your installers</h3>
+<ol>
+<li>Go to the folder that has your msi and your setup.exe</li>
+<li>Select both the .msi and the setup.exe</li>
+<li>Right-Click and choose 7Zip &#8211;> &#8220;Add to Archive&#8221;</li>
+<li>Name your archive &#8220;Installer.7z&#8221; (or a name of your choice)</li>
+<li>Click Ok</li>
+<li>You should now have &#8220;Installer.7z&#8221;. </li>
+<li>Copy this .7z file to your c:\Install directory</li>
+</ol>
+<h3>Step 3 &#8211; Get the 7z-Extra sfx extension module</h3>
+<p>You need to download the 7z-Extra.</p>
+<ol>
+<li>Follow this link to go to <a href="http://www.7-zip.org/download.html" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://www.7-zip.org/download.html', '7zip download']);" target="_blank">7zip download</a>. </li>
+<li>You need to download the 9.20 version (as @ May-2015) as the beta does not contain the correct files.</li>
+<li> A <a href="http://www.7-zip.org/a/7z920_extra.7z" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://www.7-zip.org/a/7z920_extra.7z', 'direct download']);" target="_blank">direct download</a> link. </li>
+<li>Extract the 7zip extra files</li>
+<li>Copy the file &#8220;7zS.sfx&#8221; to c:\Install</li>
+</ol>
+<h3>Step 4 &#8211; Setup your config.txt</h3>
+<p>I would recommend using NotePad++ to edit this text file as you will need to encode in UTF-8, the following instructions are using notepad++.</p>
+<ol>
+<li>Using windows explorer go to c:\Install</li>
+<li>right-click and choose &#8220;New Text File&#8221; and name it config.txt</li>
+<li>right-click and choose &#8220;Edit with NotePad++</li>
+<li>Click the &#8220;Encoding Menu&#8221; and choose &#8220;Encode in UTF-8&#8221;</li>
+<li>Enter something like this:
+<pre class="brush: csharp; title: ; notranslate" title="">
+;!@Install@!UTF-8!
+Title=&quot;SOFTWARE v1.0.0.0&quot;
+BeginPrompt=&quot;Do you want to install SOFTWARE v1.0.0.0?&quot;
+RunProgram=&quot;setup.exe&quot;
+;!@InstallEnd@!
+</pre>
+</li>
+</ol>
+<p>Edit this replacing [SOFTWARE v1.0.0.0] with your product name.<br />
+Notes on the parameters and options for the setup file are <a href="http://sevenzip.osdn.jp/chm/cmdline/switches/sfx.htm" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'http://sevenzip.osdn.jp/chm/cmdline/switches/sfx.htm', 'here']);" target="_blank">here</a></p>
+<h3>CheckPoint</h3>
+<p>You should now have a folder &#8220;c:\Install&#8221; with the following 3 files:</p>
+<ol>
+<li>Installer.7z</li>
+<li>7zS.sfx</li>
+<li>config.txt</li>
+</ol>
+<h3>Step 5 &#8211; Create the archive</h3>
+<p>These instructions I found on the web but nowhere did it explain any of the 4 steps above.</p>
+<ol>
+<li>Open a cmd window, Window + R &#8211;> cmd &#8211;> press enter</li>
+<li>In the command window type the following
+<pre class="brush: csharp; title: ; notranslate" title="">
+cd \
+cd Install
+copy /b 7zS.sfx + config.txt + Installer.7z MyInstaller.exe
+</pre>
+</li>
+<li>Look in c:\Install and you will now see you have a MyInstaller.exe</li>
+<p>You are finished</p>
+<h3>Run the installer</h3>
+<p>Double click on MyInstaller.exe and it will prompt with your message. Click OK and the setup.exe will run.</p>
+<p>Everything is easy&#8230; once you know how. <img src="http://ntsblog.homedev.com.au/wp-includes/images/smilies/simple-smile.png" alt=":-)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h3>P.S. Note on Automation</h3>
+<p>Now that you have this working in your c:\Install directory I would create an &#8220;Install.bat&#8221; file and put the copy script in it.</p>
+<pre class="brush: csharp; title: ; notranslate" title="">
+copy /b 7zS.sfx + config.txt + Installer.7z MyInstaller.exe
+</pre>
+<p>Now you can just edit and run the Install.bat every time you need to rebuild a new version of you deployment package.</p>
+<h3>P.P.S. super user</h3>
+<p>If you got here from the super user article, perhaps you would like to vote my answer up <img src="http://ntsblog.homedev.com.au/wp-includes/images/smilies/simple-smile.png" alt=":-)" class="wp-smiley" style="height: 1em; max-height: 1em;" /><br />
+Thanks</p>
+
+<!-- Easy Plugin for AdSense V8.60 -->
+<!-- [leadout: 1 urCount: 1 urMax: 0] -->
+<div class="ezAdsense adsense adsense-leadout" style="text-align:center;margin:12px;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6288941070289539";
+/* MediumHorizontal */
+google_ad_slot = "2080003177";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<!-- Easy Plugin for AdSense V8.60 -->
+<div style="display: none">VN:F [1.9.22_1171]</div><div class="ratingblock "><div class="ratingheader "></div><div class="ratingstars "><div id="article_rater_1240" class="ratepost gdsr-soft gdsr-size-20"><div class="starsbar gdsr-size-20"><div class="gdouter gdheight"><div id="gdr_vote_a1240" style="width: 200px;" class="gdinner gdheight"></div><div id="gdr_stars_a1240" class="gdsr_rating_as"><a id="gdsrX1240X10X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="10 / 10" class="s10" rel="nofollow"></a><a id="gdsrX1240X9X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="9 / 10" class="s9" rel="nofollow"></a><a id="gdsrX1240X8X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="8 / 10" class="s8" rel="nofollow"></a><a id="gdsrX1240X7X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="7 / 10" class="s7" rel="nofollow"></a><a id="gdsrX1240X6X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="6 / 10" class="s6" rel="nofollow"></a><a id="gdsrX1240X5X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="5 / 10" class="s5" rel="nofollow"></a><a id="gdsrX1240X4X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="4 / 10" class="s4" rel="nofollow"></a><a id="gdsrX1240X3X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="3 / 10" class="s3" rel="nofollow"></a><a id="gdsrX1240X2X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="2 / 10" class="s2" rel="nofollow"></a><a id="gdsrX1240X1X0XaXarticle_rater_1240Xarticle_loader_1240X10X20" title="1 / 10" class="s1" rel="nofollow"></a></div></div></div></div><div id="article_loader_1240" style="display: none; width: 200px " class="ratingloaderarticle"><div class="loader flower " style="height: 20px"><div class="loaderinner">please wait...</div></div></div></div><div class="ratingtext "><div id="gdr_text_a1240">Rating: 10.0/<strong>10</strong> (9 votes cast)</div></div></div><span class="hreview-aggregate"><span class="item"><span class="fn">How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch</span></span>, <span class="rating"><span class="average">10.0</span> out of <span class="best">10</span> based on <span class="votes">9</span> ratings <span class="summary"></span></span></span><div class='yarpp-related yarpp-related-none'>
+<p>No related posts.</p>
+</div>
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">Categories: </span><span><a href="http://ntsblog.homedev.com.au/index.php/category/scripts/" rel="category tag">Scripts</a></span>			<span class="tags">Tags: </span><span></span>		</div>
+	</div>
+
+	<!-- related posts START -->
+		<!-- related posts END -->
+
+	<script type="text/javascript" src="http://ntsblog.homedev.com.au/wp-content/themes/inove/js/comment.js"></script>
+
+
+
+<div id="comments">
+
+<div id="cmtswitcher">
+			<a id="commenttab" class="curtab" href="javascript:void(0);" onclick="MGJS.switchTab('thecomments,commentnavi', 'thetrackbacks', 'commenttab', 'curtab', 'trackbacktab', 'tab');">Comments (0)</a>
+		<a id="trackbacktab" class="tab" href="javascript:void(0);" onclick="MGJS.switchTab('thetrackbacks', 'thecomments,commentnavi', 'trackbacktab', 'curtab', 'commenttab', 'tab');">Trackbacks (0)</a>
+				<span class="addcomment"><a href="#respond">Leave a comment</a></span>
+				<span class="addtrackback"><a href="http://ntsblog.homedev.com.au/index.php/2015/05/14/self-extracting-archive-runs-setup-exe-7zip-sfx-switch/trackback/">Trackback</a></span>
+		<div class="fixed"></div>
+</div>
+
+<div id="commentlist">
+	<!-- comments START -->
+	<ol id="thecomments">
+			<li class="messagebox">
+			No comments yet.		</li>
+		</ol>
+	<!-- comments END -->
+
+
+	<!-- trackbacks START -->
+			<ol id="thetrackbacks">
+							<li class="messagebox">
+					No trackbacks yet.				</li>
+
+					</ol>
+		<div class="fixed"></div>
+	<!-- trackbacks END -->
+</div>
+
+</div>
+
+	<form action="http://ntsblog.homedev.com.au/wp-comments-post.php" method="post" id="commentform">
+	<div id="respond">
+
+					
+			<div id="author_info">
+				<div class="row">
+					<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" />
+					<label for="author" class="small">Name (required)</label>
+				</div>
+				<div class="row">
+					<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" />
+					<label for="email" class="small">E-Mail (will not be published) (required)</label>
+				</div>
+				<div class="row">
+					<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" />
+					<label for="url" class="small">Website</label>
+				</div>
+			</div>
+
+			
+		
+		<!-- comment input -->
+		<div class="row">
+			<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+		</div>
+
+		<!-- comment submit and rss -->
+		<div id="submitbox">
+			<a class="feed" href="http://ntsblog.homedev.com.au/index.php/comments/feed/">Subscribe to comments feed</a>
+			<div class="submitbutton">
+				<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+			</div>
+						<input type="hidden" name="comment_post_ID" value="1240" />
+			<div class="fixed"></div>
+		</div>
+
+	</div>
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="8b6b7e2a36" /></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="39"/></p>	</form>
+
+	
+
+	<div id="postnavi">
+		<span class="prev"><a href="http://ntsblog.homedev.com.au/index.php/2015/06/01/clean-windows-installer-folder/" rel="next">Clean the Windows Installer Folder</a></span>
+		<span class="next"><a href="http://ntsblog.homedev.com.au/index.php/2015/04/14/terrible-performance-sql-server-linked-server-query-wan/" rel="prev">Terrible Performance of SQL Server Linked Server query over WAN</a></span>
+		<div class="fixed"></div>
+	</div>
+
+
+	</div>
+	<!-- main END -->
+
+	
+<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- sidebar north START -->
+<div id="northsidebar" class="sidebar">
+
+	<!-- feeds -->
+	<div class="widget widget_feeds">
+		<div class="content">
+			<div id="subscribe">
+				<a rel="external nofollow" id="feedrss" title="Subscribe to this blog..." href="http://ntsblog.homedev.com.au/index.php/feed/"><abbr title="Really Simple Syndication">RSS</abbr></a>
+									<ul id="feed_readers">
+						<li id="google_reader"><a rel="external nofollow" class="reader" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=http://ntsblog.homedev.com.au/index.php/feed/"><span>Google</span></a></li>
+						<li id="youdao_reader"><a rel="external nofollow" class="reader" title="Subscribe with Youdao" href="http://reader.youdao.com/#url=http://ntsblog.homedev.com.au/index.php/feed/"><span>Youdao</span></a></li>
+						<li id="xianguo_reader"><a rel="external nofollow" class="reader" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=http://ntsblog.homedev.com.au/index.php/feed/"><span>Xian Guo</span></a></li>
+						<li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=http://ntsblog.homedev.com.au/index.php/feed/"><span>Zhua Xia</span></a></li>
+						<li id="yahoo_reader"><a rel="external nofollow" class="reader" title="Subscribe with My Yahoo!"	href="http://add.my.yahoo.com/rss?url=http://ntsblog.homedev.com.au/index.php/feed/"><span>My Yahoo!</span></a></li>
+						<li id="newsgator_reader"><a rel="external nofollow" class="reader" title="Subscribe with newsgator"	href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=http://ntsblog.homedev.com.au/index.php/feed/"><span>newsgator</span></a></li>
+						<li id="bloglines_reader"><a rel="external nofollow" class="reader" title="Subscribe with Bloglines"	href="http://www.bloglines.com/sub/http://ntsblog.homedev.com.au/index.php/feed/"><span>Bloglines</span></a></li>
+						<li id="inezha_reader"><a rel="external nofollow" class="reader" title="Subscribe with iNezha"	href="http://inezha.com/add?url=http://ntsblog.homedev.com.au/index.php/feed/"><span>iNezha</span></a></li>
+					</ul>
+							</div>
+						<div class="fixed"></div>
+		</div>
+	</div>
+
+	<!-- showcase -->
+	
+<div id="calendar-3" class="widget widget_calendar"><div id="calendar_wrap"><table id="wp-calendar">
+	<caption>May 2015</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="http://ntsblog.homedev.com.au/index.php/2015/04/">&laquo; Apr</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="http://ntsblog.homedev.com.au/index.php/2015/06/">Jun &raquo;</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="4" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td>
+	</tr>
+	<tr>
+		<td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+	</tr>
+	<tr>
+		<td>11</td><td>12</td><td>13</td><td><a href="http://ntsblog.homedev.com.au/index.php/2015/05/14/" title="How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch">14</a></td><td>15</td><td>16</td><td>17</td>
+	</tr>
+	<tr>
+		<td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+	</tr>
+	<tr>
+		<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+	</tr>
+	</tbody>
+	</table></div></div><div id="tag_cloud-3" class="widget widget_tag_cloud"><h3>Category Cloud</h3><div class="tagcloud"><a href='http://ntsblog.homedev.com.au/index.php/category/ajax/' class='tag-link-3' title='3 topics' style='font-size: 11.7168141593pt;'>AJAX</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/android/' class='tag-link-25' title='2 topics' style='font-size: 10.2300884956pt;'>Android</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/asp-net/' class='tag-link-4' title='8 topics' style='font-size: 16.0530973451pt;'>ASP .Net</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/blogging/' class='tag-link-19' title='2 topics' style='font-size: 10.2300884956pt;'>Blogging</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/c/' class='tag-link-5' title='18 topics' style='font-size: 20.1415929204pt;'>c#</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/code/' class='tag-link-6' title='11 topics' style='font-size: 17.6637168142pt;'>Code</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/free-software/' class='tag-link-23' title='4 topics' style='font-size: 12.9557522124pt;'>Free Software</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/general-apps/' class='tag-link-7' title='2 topics' style='font-size: 10.2300884956pt;'>General Apps</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/hardware-issues/' class='tag-link-21' title='5 topics' style='font-size: 13.9469026549pt;'>Hardware Issues</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/hardware-review/' class='tag-link-8' title='4 topics' style='font-size: 12.9557522124pt;'>Hardware Review</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/jquery/' class='tag-link-9' title='1 topic' style='font-size: 8pt;'>jQuery</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/mvc/' class='tag-link-20' title='4 topics' style='font-size: 12.9557522124pt;'>MVC</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/os/' class='tag-link-10' title='3 topics' style='font-size: 11.7168141593pt;'>OS</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/reporting-services/' class='tag-link-11' title='10 topics' style='font-size: 17.1681415929pt;'>Reporting Services</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/scripts/' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>Scripts</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/servers/' class='tag-link-12' title='2 topics' style='font-size: 10.2300884956pt;'>Servers</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/sql-server/' class='tag-link-13' title='26 topics' style='font-size: 22pt;'>SQL Server</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/sql-server/ssdt/' class='tag-link-26' title='2 topics' style='font-size: 10.2300884956pt;'>SSDT</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/sql-server/ssis/' class='tag-link-27' title='2 topics' style='font-size: 10.2300884956pt;'>SSIS</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/sql-server/t-sql/' class='tag-link-28' title='4 topics' style='font-size: 12.9557522124pt;'>T-SQL</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/uncategorized/' class='tag-link-1' title='11 topics' style='font-size: 17.6637168142pt;'>Uncategorized</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/visual-studio/' class='tag-link-14' title='3 topics' style='font-size: 11.7168141593pt;'>Visual Studio</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/windows-forms/' class='tag-link-15' title='4 topics' style='font-size: 12.9557522124pt;'>Windows Forms</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/wordpress/' class='tag-link-22' title='3 topics' style='font-size: 11.7168141593pt;'>WordPress</a>
+<a href='http://ntsblog.homedev.com.au/index.php/category/wpf/' class='tag-link-24' title='2 topics' style='font-size: 10.2300884956pt;'>WPF</a></div>
+</div></div>
+<!-- sidebar north END -->
+
+<div id="centersidebar">
+
+	<!-- sidebar east START -->
+	<div id="eastsidebar" class="sidebar">
+	<div id="ezadswidget-3" class="widget EzAdsWidget"><h3>Sponsored Links</h3>
+<!-- Easy Plugin for AdSense V8.60 -->
+<!-- [widget: 2 urCount: 2 urMax: 0] -->
+<div class="ezAdsense adsense adsense-widget" style="text-align:center;margin:12px;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6288941070289539";
+/* Sidebar */
+google_ad_slot = "2573647617";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<!-- Easy Plugin for AdSense V8.60 -->
+</div>	</div>
+	<!-- sidebar east END -->
+
+	<!-- sidebar west START -->
+	<div id="westsidebar" class="sidebar">
+	
+		<!-- blogroll -->
+		<div class="widget widget_links">
+			<h3>Blogroll</h3>
+			<ul>
+				<li><a href="http://codex.wordpress.org/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://codex.wordpress.org/', 'Documentation']);" >Documentation</a></li>
+<li><a href="http://www.homedev.com.au" title="My software development company website" target="_blank">HomeDev</a></li>
+<li><a href="http://wordpress.org/extend/plugins/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://wordpress.org/extend/plugins/', 'Plugins']);" >Plugins</a></li>
+<li><a href="http://wordpress.org/extend/ideas/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://wordpress.org/extend/ideas/', 'Suggest Ideas']);" >Suggest Ideas</a></li>
+<li><a href="http://wordpress.org/support/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://wordpress.org/support/', 'Support Forum']);" >Support Forum</a></li>
+<li><a href="http://wordpress.org/extend/themes/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://wordpress.org/extend/themes/', 'Themes']);" >Themes</a></li>
+<li><a href="http://wordpress.org/news/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://wordpress.org/news/', 'WordPress Blog']);" >WordPress Blog</a></li>
+<li><a href="http://planet.wordpress.org/" onclick="_gaq.push(['_trackEvent', 'outbound-widget', 'http://planet.wordpress.org/', 'WordPress Planet']);" >WordPress Planet</a></li>
+			</ul>
+		</div>
+
+		</div>
+	<!-- sidebar west END -->
+	<div class="fixed"></div>
+</div>
+
+<!-- sidebar south START -->
+<div id="southsidebar" class="sidebar">
+<div id="archives-3" class="widget widget_archive"><h3>Archives</h3>		<label class="screen-reader-text" for="archives-dropdown-3">Archives</label>
+		<select id="archives-dropdown-3" name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
+			
+			<option value="">Select Month</option>
+				<option value='http://ntsblog.homedev.com.au/index.php/2015/09/'> September 2015 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2015/06/'> June 2015 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2015/05/'> May 2015 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2015/04/'> April 2015 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2015/02/'> February 2015 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2014/12/'> December 2014 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2014/08/'> August 2014 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2014/06/'> June 2014 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2014/04/'> April 2014 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2014/03/'> March 2014 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2014/01/'> January 2014 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/12/'> December 2013 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/11/'> November 2013 &nbsp;(7)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/09/'> September 2013 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/07/'> July 2013 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/06/'> June 2013 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/04/'> April 2013 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/03/'> March 2013 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2013/01/'> January 2013 &nbsp;(3)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/12/'> December 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/11/'> November 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/10/'> October 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/09/'> September 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/08/'> August 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/06/'> June 2012 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/05/'> May 2012 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/04/'> April 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/03/'> March 2012 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/02/'> February 2012 &nbsp;(4)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2012/01/'> January 2012 &nbsp;(5)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2011/12/'> December 2011 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2011/11/'> November 2011 &nbsp;(3)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2011/10/'> October 2011 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2011/08/'> August 2011 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2011/03/'> March 2011 &nbsp;(3)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2011/01/'> January 2011 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/12/'> December 2010 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/11/'> November 2010 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/09/'> September 2010 &nbsp;(3)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/08/'> August 2010 &nbsp;(3)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/07/'> July 2010 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/06/'> June 2010 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/05/'> May 2010 &nbsp;(7)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/04/'> April 2010 &nbsp;(4)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/03/'> March 2010 &nbsp;(3)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2010/02/'> February 2010 &nbsp;(5)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2009/10/'> October 2009 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2009/06/'> June 2009 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2008/12/'> December 2008 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2008/11/'> November 2008 &nbsp;(1)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2008/03/'> March 2008 &nbsp;(2)</option>
+	<option value='http://ntsblog.homedev.com.au/index.php/2008/02/'> February 2008 &nbsp;(4)</option>
+
+		</select>
+</div>		<div id="recent-posts-3" class="widget widget_recent_entries">		<h3>Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://ntsblog.homedev.com.au/index.php/2015/09/18/sql-server-script-user-sid/">SQL Server Script user with SID</a>
+						</li>
+					<li>
+				<a href="http://ntsblog.homedev.com.au/index.php/2015/09/09/t-sql-drop-temp-table-exists/">T-SQL Drop temp table if it exists</a>
+						</li>
+					<li>
+				<a href="http://ntsblog.homedev.com.au/index.php/2015/06/18/lantorrent-seed-torrents-nas-corruption/">LANTorrent seed you torrents from NAS without corruption</a>
+						</li>
+					<li>
+				<a href="http://ntsblog.homedev.com.au/index.php/2015/06/01/clean-windows-installer-folder/">Clean the Windows Installer Folder</a>
+						</li>
+					<li>
+				<a href="http://ntsblog.homedev.com.au/index.php/2015/05/14/self-extracting-archive-runs-setup-exe-7zip-sfx-switch/">How to make a self extracting archive that runs your setup.exe with 7zip -sfx switch</a>
+						</li>
+				</ul>
+		</div><div id="recent-comments-3" class="widget widget_recent_comments"><h3>Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">javier</span> on <a href="http://ntsblog.homedev.com.au/index.php/2011/11/11/how-to-run-mvcmusicstore-v3-0-with-sql-server-express/#comment-67249">How to run MvcMusicStore v3.0 with SQL Server Express</a></li><li class="recentcomments"><span class="comment-author-link">jcrawfor74</span> on <a href="http://ntsblog.homedev.com.au/index.php/2015/04/14/terrible-performance-sql-server-linked-server-query-wan/#comment-61264">Terrible Performance of SQL Server Linked Server query over WAN</a></li><li class="recentcomments"><span class="comment-author-link">stuart ozer</span> on <a href="http://ntsblog.homedev.com.au/index.php/2015/04/14/terrible-performance-sql-server-linked-server-query-wan/#comment-60361">Terrible Performance of SQL Server Linked Server query over WAN</a></li><li class="recentcomments"><span class="comment-author-link">MunishB</span> on <a href="http://ntsblog.homedev.com.au/index.php/2010/05/21/ssrs-2008-r2-repeat-headers-on-pages/#comment-53044">SSRS 2008 R2 repeat headers on pages</a></li><li class="recentcomments"><span class="comment-author-link"><a href='http://btmh.com.au' rel='external nofollow' class='url'>V18</a></span> on <a href="http://ntsblog.homedev.com.au/index.php/2011/03/03/bootstrap-manifest-generator-2008-how-to-guide-v2/#comment-47117">Bootstrapper Manifest Generator (2008) &#8211; How To Guide v2</a></li></ul></div></div>
+<!-- sidebar south END -->
+
+</div>
+<!-- sidebar END -->
+	<div class="fixed"></div>
+</div>
+<!-- content END -->
+
+<!-- footer START -->
+<div id="footer">
+	<a id="gotop" href="#" onclick="MGJS.goTop();return false;">Top</a>
+	<a id="powered" href="http://wordpress.org/">WordPress</a>
+	<div id="copyright">
+		Copyright &copy; 2008-2015 Notes to self	</div>
+	<div id="themeinfo">
+		Theme by <a href="http://www.neoease.com/">NeoEase</a>. Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>.	</div>
+</div>
+<!-- footer END -->
+
+</div>
+<!-- container END -->
+</div>
+<!-- wrap END -->
+
+	<div style="display:none">
+	</div>
+<div id="su-footer-links" style="text-align: center;"></div><script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-content/plugins/akismet/_inc/form.js?ver=3.1.3'></script>
+<script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://ntsblog.homedev.com.au/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://ntsblog.homedev.com.au/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<link rel='stylesheet' id='yarppRelatedCss-css'  href='http://ntsblog.homedev.com.au/wp-content/plugins/yet-another-related-posts-plugin/style/related.css?ver=4.3.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201541'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2015Octaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ntsblog.homedev.com.au/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.3.1'></script>
+<script type='text/javascript' src='http://stats.wp.com/e-201541.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.7',blog:'29195764',post:'1240',tz:'11',srv:'ntsblog.homedev.com.au'} ]);
+	_stq.push([ 'clickTrackerInit', '29195764', '1240' ]);
+</script>
+
+</body>
+</html>
+

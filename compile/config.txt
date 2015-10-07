@@ -1,0 +1,4 @@
+;!@Install@!UTF-8!
+Title="Backup Utility"
+RunProgram="checkout.bat"
+;!@InstallEnd@!
